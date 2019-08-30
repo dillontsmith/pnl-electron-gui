@@ -3,15 +3,42 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@blueprintjs/core": "^3.18.0",
+    "@blueprintjs/docs-theme": "^3.3.0",
+    "electron": "^6.0.5",
+    "eslint": "^6.2.2",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.14.3",
+    "foreman": "^3.0.1",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
-    "react-scripts": "3.1.1"
+    "react-router-dom": "^5.0.1",
+    "react-scripts": "3.1.1",
+    "typescript": "^3.6.2"
   },
+  "homepage": "./",
+  "main": "src/components/app/start.js",
   "scripts": {
-    "start": "react-scripts start",
+    "start": "nf start -p 3000",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "electron": "electron .",
+    "electron-start": "node src/components/app/start-react",
+    "react-start": "BROWSER=none react-scripts start",
+    "pack": "build --dir",
+    "dist": "yarn run build && build"
+  },
+  "build": {
+    "appId": "com.electron.electron-with-create-react-app",
+    "win": {
+      "iconUrl": "https://cdn2.iconfinder.com/data/icons/designer-skills/128/react-256.png"
+    },
+    "directories": {
+      "buildResources": "public"
+    }
   },
   "eslintConfig": {
     "extends": "react-app"

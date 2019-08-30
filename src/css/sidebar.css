@@ -1,0 +1,16 @@
+@import '~@blueprintjs/core/lib/css/blueprint.css';
+@import '~@blueprintjs/icons/lib/css/blueprint-icons.css';
+.sidebar-wrapper {
+    width:30%;
+    height:100%;
+}
+.sidebar {
+    height:100%;
+    width:80%;
+}
+.bp3-elevation-0{
+    height: 80%;
+    margin-left: 2px;
+    margin-right: 2px;
+    margin-top: 10px;
+}
