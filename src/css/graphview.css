@@ -1,0 +1,9 @@
+.graph-view {
+    background-color: #fcfcfc;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    color: white;
+    flex-basis: 75%;
+}
