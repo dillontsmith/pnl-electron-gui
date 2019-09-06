@@ -10,8 +10,8 @@ function createWindow() {
     {
       width: 1600,
       height: 1000,
-      resizable: false,
-      maximizable: false
+      // resizable: false,
+      // maximizable: false
   })
 
   mainWindow.loadURL(

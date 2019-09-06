@@ -2,25 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fbf4b50d-a4b6-405c-ab93-022561a5027c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/app/app.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/graphview.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/mainpanel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/parametertoolbox.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/tooltipbox.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/css/graphview.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/css/tooltipbox.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utility/add_context_menu.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/app/app.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/app/app.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/app/start-react.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/start-react.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/app/start.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/start.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/app/vars.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/vars.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/main-panel/main-panel.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/sidebar/sidebar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sidebar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/sidebar.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/sidebar.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/start.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/start.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/mainpanel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/mainpanel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/sidebar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sidebar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/tooltipbox.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/tooltipbox.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/graphview.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/graphview.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/tooltipbox.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/tooltipbox.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -72,7 +62,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="yarn" />
-    <property name="settings.editor.selected.configurable" value="xml.defaultSchemas" />
+    <property name="settings.editor.selected.configurable" value="settings.nodejs" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
   </component>
   <component name="RecentsManager">
@@ -129,7 +119,7 @@
       <workItem from="1567697898280" duration="9687000" />
       <workItem from="1567710111063" duration="4082000" />
       <workItem from="1567716190616" duration="1143000" />
-      <workItem from="1567776419671" duration="6071000" />
+      <workItem from="1567776419671" duration="18116000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1567188498160</created>
