@@ -1,21 +1,33 @@
-html, body {margin: 0;
+html, body {
+  margin: 0;
+  overflow: hidden;
+  width: 100%;
   height: 100%;
-  overflow: hidden}
-
+}
+#root, .app, .main-panel {
+  width: 100%;
+  height: 100%
+}
 .app {
   display: flex;
   justify-content: flex-start;    /* Add this */
   flex-direction: column;
+  align-self: stretch;
 }
 
 .primary-row {
   display: flex;
   flex-direction: row;
+  flex-basis: 75%;
+  min-width: 1600px;
 }
 
 .information-row {
   display: flex;
   flex-direction: row;
+  flex-basis: 25%;
+  min-width: 1600px;
+  height: 100%;
 }
 
 /* delete all this once you start developing the actual main panel*/

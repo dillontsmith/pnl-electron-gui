@@ -7,8 +7,8 @@ export default class Tooltipbox extends React.Component{
   }
   render(){
     return (
-      <div className="tooltip-box">
-        <div>
+      <div className="tooltipbox">
+        <div className="tooltipbody">
           {this.props.text}
         </div>
       </div>

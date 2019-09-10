@@ -1,7 +1,7 @@
 import React from "react";
-import '../css/tooltipbox.css'
+import '../css/parametercontrolbox.css'
 
-export class ToolTipBox extends React.Component{
+export class ParameterControlBox extends React.Component{
   constructor(props){
     super()
     this.state = {text:props.text}
@@ -11,8 +11,8 @@ export class ToolTipBox extends React.Component{
   }
   render(){
     return (
-      <div className="tooltip-box">
-        <div>
+      <div className="parametercontrolbox">
+        <div className="parametercontrolbody">
           {this.state.text}
         </div>
       </div>
@@ -20,4 +20,4 @@ export class ToolTipBox extends React.Component{
   };
 }
 
-export default ToolTipBox
+export default ParameterControlBox

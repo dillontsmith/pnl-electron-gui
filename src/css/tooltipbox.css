@@ -1,5 +1,8 @@
-.tooltip-box{
-    margin:1%;
+.tooltipbox{
     flex-basis: 25%;
     align-self: stretch;
+}
+
+.tooltipbody{
+    margin: 10px
 }

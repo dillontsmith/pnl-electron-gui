@@ -2,8 +2,7 @@ import React from 'react'
 import SideBar from './sidebar'
 import GraphView from './graphview'
 import ToolTipBox from './tooltipbox'
-import { ContextMenu, Menu, MenuItem } from '@blueprintjs/core'
-import add_context_menu from '../utility/add_context_menu'
+import ParameterControlBox from './parametercontrolbox'
 
 export default class MainPanel extends React.Component {
   constructor(props){
@@ -29,7 +28,7 @@ export default class MainPanel extends React.Component {
         </div>
         <div className="information-row">
           <ToolTipBox text={this.state.active_tooltip}/>
-          <GraphView/>
+          <ParameterControlBox text={this.state.active_tooltip}/>
         </div>
       </div>
     )
