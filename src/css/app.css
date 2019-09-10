@@ -10,7 +10,7 @@ html, body {
 }
 .app {
   display: flex;
-  justify-content: flex-start;    /* Add this */
+  justify-content: flex-start;
   flex-direction: column;
   align-self: stretch;
 }
@@ -18,14 +18,14 @@ html, body {
 .primary-row {
   display: flex;
   flex-direction: row;
-  flex-basis: 75%;
+  flex-basis: 80%;
   min-width: 1600px;
 }
 
 .information-row {
   display: flex;
   flex-direction: row;
-  flex-basis: 25%;
+  flex-basis: 20%;
   min-width: 1600px;
   height: 100%;
 }
