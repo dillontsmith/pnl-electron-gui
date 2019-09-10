@@ -18,14 +18,14 @@ html, body {
 .primary-row {
   display: flex;
   flex-direction: row;
-  flex-basis: 80%;
+  flex-basis: 70%;
   min-width: 1600px;
 }
 
 .information-row {
   display: flex;
   flex-direction: row;
-  flex-basis: 20%;
+  flex-basis: 30%;
   min-width: 1600px;
   height: 100%;
 }
