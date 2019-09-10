@@ -5,6 +5,8 @@ const BrowserWindow = electron.BrowserWindow
 const path = require('path')
 const url = require('url')
 
+app.commandLine.appendSwitch('remote-debugging-port', '9222')
+
 function createWindow() {
   mainWindow = new BrowserWindow(
     {

@@ -46,8 +46,8 @@ export default class SideBar extends React.Component {
     }
 
     for (const node of nodes) {
-      callback(node);
       this.forEachNode(node.childNodes, callback);
+      callback(node);
     }
   }
 }
@@ -91,6 +91,7 @@ const INITIAL_STATE = [
   {
     id: 0,
     icon: "folder-close",
+    hasCaret: false,
     isExpanded: true,
     label: "Components",
     childNodes:[
@@ -98,16 +99,22 @@ const INITIAL_STATE = [
         id: 1,
         icon: "folder-close",
         label: "Mechanisms",
+        hasCaret: false,
+        isExpanded: true,
         childNodes:[
           {
             id: 2,
             icon: "folder-close",
             label: "Adaptive",
+            hasCaret: false,
+            isExpanded: true,
             childNodes: [
               {
                 id: 3,
                 icon: 'folder-close',
                 label: "Control",
+                hasCaret: false,
+                isExpanded: true,
                 childNodes: [
                   {
                     id: 4,
@@ -127,6 +134,8 @@ const INITIAL_STATE = [
             id: 6,
             icon: "folder-close",
             label: "Gating",
+            hasCaret: false,
+            isExpanded: true,
             childNodes: [
               {
                 id: 7,
@@ -139,6 +148,8 @@ const INITIAL_STATE = [
             id: 8,
             icon: "folder-close",
             label: "Learning",
+            hasCaret: false,
+            isExpanded: true,
             childNodes: [
               {
                 id: 7,
@@ -151,6 +162,8 @@ const INITIAL_STATE = [
             id: 9,
             icon: "folder-close",
             label: "Processing",
+            hasCaret: false,
+            isExpanded: true,
             childNodes: [
               {
                 id: 10,
@@ -180,11 +193,15 @@ const INITIAL_STATE = [
         id: 14,
         icon: "folder-close",
         label: "Projections",
+        hasCaret: false,
+        isExpanded: true,
         childNodes:[
           {
             id: 15,
             icon: "folder-close",
             label: "Modulatory",
+            hasCaret: false,
+            isExpanded: true,
             childNodes:[
               {
                 id: 16,
@@ -207,6 +224,8 @@ const INITIAL_STATE = [
             id: 19,
             icon: "folder-close",
             label: "Pathway",
+            hasCaret: false,
+            isExpanded: true,
             childNodes:[
               {
                 id: 20,
