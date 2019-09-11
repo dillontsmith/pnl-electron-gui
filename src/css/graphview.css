@@ -6,12 +6,13 @@
     padding:0px !important;
     grid-column-start: 2;
     grid-row-start: 1;
-
 }
+
 .outer_svg{
     justify-content: center;
     align-content: center;
 }
+
 .inner_svg{
     justify-self: center;
     align-self: center;

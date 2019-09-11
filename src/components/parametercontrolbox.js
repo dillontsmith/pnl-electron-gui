@@ -6,7 +6,7 @@ export class ParameterControlBox extends React.Component {
     super()
     this.state = {
       text: props.text,
-      class: props.className != undefined ? `parametercontrolbox ${props.className}`:'parametercontrolbox'
+      class: props.className !== undefined ? `parametercontrolbox ${props.className}`:'parametercontrolbox'
     }
   }
 
