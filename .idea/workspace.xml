@@ -2,18 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fbf4b50d-a4b6-405c-ab93-022561a5027c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/css/mainpanel.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/graphview.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/graphview.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/mainpanel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/mainpanel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/parametercontrolbox.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/parametercontrolbox.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/sidebar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sidebar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/tooltipbox.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/tooltipbox.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/graphview.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/graphview.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/parametercontrolbox.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/parametercontrolbox.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/sidebar.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/sidebar.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/tooltipbox.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/tooltipbox.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -97,16 +87,10 @@
     </option>
   </component>
   <component name="RunManager" selected="npm.npm start">
-    <configuration name="Debug Render" type="ChromiumRemoteDebugType" factoryName="Chromium Remote" port="9222">
+    <configuration name="Debug Render" type="ChromiumRemoteDebugType" factoryName="Chromium Remote" port="9222" restartOnDisconnect="true">
       <method v="2" />
     </configuration>
     <configuration name="Debug Application" type="JavascriptDebugType" uri="http://localhost:3000">
-      <method v="2" />
-    </configuration>
-    <configuration name="114" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="mem://2/114">
-      <method v="2" />
-    </configuration>
-    <configuration name="Unnamed" type="NodeJSConfigurationType" singleton="false" application-parameters="--remote-debugging-port=9222" path-to-node="$PROJECT_DIR$/node_modules/.bin/electron" nameIsGenerated="true" working-dir="$PROJECT_DIR$">
       <method v="2" />
     </configuration>
     <configuration name="npm start" type="js.build_tools.npm">
@@ -122,15 +106,8 @@
     <list>
       <item itemvalue="Attach to Node.js/Chrome.Debug Render" />
       <item itemvalue="JavaScript Debug.Debug Application" />
-      <item itemvalue="Node.js.Unnamed" />
-      <item itemvalue="Node.js.114" />
       <item itemvalue="npm.npm start" />
     </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Node.js.114" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="StructureViewFactory">
     <option name="AUTOSCROLL_MODE" value="false" />
@@ -152,7 +129,7 @@
       <workItem from="1567776419671" duration="18190000" />
       <workItem from="1568048366077" duration="23283000" />
       <workItem from="1568208335207" duration="3678000" />
-      <workItem from="1568212124713" duration="2534000" />
+      <workItem from="1568212124713" duration="10763000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1567188498160</created>
@@ -198,9 +175,6 @@
           <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
-      <default-breakpoints>
-        <breakpoint enabled="true" type="javascript-exception" />
-      </default-breakpoints>
     </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
