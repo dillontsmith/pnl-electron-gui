@@ -1,6 +1,6 @@
 .tooltipbox{
-    flex-basis: 25%;
-    align-self: stretch;
+    margin-top:1px;
+    flex-basis:25%;
 }
 
 .tooltipbody{

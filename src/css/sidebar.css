@@ -2,18 +2,13 @@
 @import '~@blueprintjs/icons/lib/css/blueprint-icons.css';
 
 .sidebar{
-    flex-basis: 25%;
-    margin-right:1px;
     align-self: stretch;
-    width: 100%
+    flex-basis:25%;
 }
 .bp3-tree {
     height:100%;
     width:100%;
     align-self: stretch;
-}
-.bp3-tree-node-icon{
-    margin-left: 10px;
 }
 .bp3-tree-node {
     align-self: stretch;

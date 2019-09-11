@@ -1,13 +1,19 @@
 .graph-view {
     background-color: #fcfcfc;
     display: flex;
-    width: 100%;
     flex-direction: column;
     align-content: center;
     justify-content: flex-start;
     color: white;
-    flex-basis: 65%;
+    margin-left:1px;
+    flex-basis:75%;
+    padding:0px !important;
 }
-.svg{
-
+.outer_svg{
+    justify-content: center;
+    align-content: center;
+}
+.inner_svg{
+    justify-self: center;
+    align-self: center;
 }

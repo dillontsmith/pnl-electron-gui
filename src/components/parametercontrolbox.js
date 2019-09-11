@@ -1,20 +1,23 @@
-import React from "react";
+import React from 'react'
 import '../css/parametercontrolbox.css'
 
-export class ParameterControlBox extends React.Component{
-  constructor(props){
+export class ParameterControlBox extends React.Component {
+  constructor(props) {
     super()
-    this.state = {text:props.text}
+    this.state = {
+      text: props.text,
+      class: props.className != undefined ? `parametercontrolbox ${props.className}`:'parametercontrolbox'
+    }
   }
+
   updateText(newText) {
-    this.setState({text:newText})
+    this.setState({ text: newText })
   }
-  render(){
+
+  render() {
     return (
-      <div className="parametercontrolbox">
-        <div className="parametercontrolbody">
+      <div className={this.state.class}>
           {this.state.text}
-        </div>
       </div>
     )
   };
