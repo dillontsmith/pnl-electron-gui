@@ -11,25 +11,8 @@ html, body {
 }
 
 .main-panel {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  grid-template-rows:800px 1fr;
 }
 
-.app {
-  display: flex;
-  justify-content: flex-start;
-  flex-direction: column;
-  align-self: stretch;
-}
-
-.primary-row {
-  display: flex;
-  flex-direction: row;
-  flex-basis: 75%;
-}
-
-.information-row {
-  display: flex;
-  flex-direction: row;
-  flex-basis: 25%;
-}

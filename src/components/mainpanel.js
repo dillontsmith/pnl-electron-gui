@@ -23,27 +23,22 @@ export default class MainPanel extends React.Component {
   render() {
     return (
       <div className="main-panel">
-        <div className="primary-row">
 
-          <SideBar
-            hover={() => this.set_tool_tip('sidebar')}
-            className='pnl-panel'/>
+        <SideBar
+          hover={() => this.set_tool_tip('sidebar')}
+          className='pnl-panel'/>
 
-          <GraphView
-            className='pnl-panel'/>
+        <GraphView
+          className='pnl-panel'/>
 
-        </div>
-        <div className="information-row">
+        <ToolTipBox
+          text={this.state.active_tooltip}
+          className='pnl-panel'/>
 
-          <ToolTipBox
-            text={this.state.active_tooltip}
-            className='pnl-panel'/>
+        <ParameterControlBox
+          text={this.state.active_tooltip}
+          className='pnl-panel'/>
 
-          <ParameterControlBox
-            text={this.state.active_tooltip}
-            className='pnl-panel'/>
-
-        </div>
       </div>
     )
   }

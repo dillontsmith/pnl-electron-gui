@@ -3,17 +3,22 @@
 
 .sidebar{
     align-self: stretch;
-    flex-basis:25%;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2
 }
 .bp3-tree {
     height:100%;
     width:100%;
     align-self: stretch;
 }
+
 .bp3-tree-node {
     align-self: stretch;
     width: 100%;
 }
+
 .bp3-icon-cog {
     color: #61dafb
 }
