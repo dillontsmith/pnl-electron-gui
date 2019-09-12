@@ -8,5 +8,5 @@
 .main-panel {
     display: grid;
     grid-template-columns: 400px 1fr;
-    grid-template-rows:80% 1fr;
+    grid-template-rows:77% 1fr;
 }
