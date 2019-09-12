@@ -21,12 +21,37 @@ class GraphView extends React.Component {
   }
 
   componentWillUnmount() {
+    window.removeEventListener('resize', this.updateGraph)
   }
 
   componentDidMount() {
     if (!this.state.mounted) {
       this.setGraph()
       this.setState({ mounted: true })
+    }
+    window.addEventListener('resize', this.updateGraph)
+  }
+
+  updateGraph() {
+    var graph = document.querySelector('.graph-view .graph')
+    var view_rect = document.querySelector('.graph-view')
+      .getBoundingClientRect()
+    var graph_rect = document.querySelector('.graph-view g.node')
+      .getBBox()
+    var total_graph_height = graph_rect.height + graph_rect.y
+    if (total_graph_height > view_rect.height) {
+      var percentage = Math.ceil((total_graph_height / view_rect.height) * 100)
+      graph.setAttribute('height', `${percentage}%`)
+    } else {
+      graph.setAttribute('height', '99%')
+    }
+
+    var total_graph_width = graph_rect.width + graph_rect.x
+    if (total_graph_width > view_rect.width) {
+      var percentage = Math.ceil((total_graph_width / view_rect.width) * 100)
+      graph.setAttribute('width', `${percentage}%`)
+    } else {
+      graph.setAttribute('width', '99%')
     }
   }
 
@@ -1028,12 +1053,13 @@ class GraphView extends React.Component {
         'target': 58
       }]
     }
-
+    let updateGraph = this.updateGraph
     var svg = d3.select('.graph-view')
       .append('svg')
-      .attr('width', "100%")
-      .attr('height', "100%")
+      .attr('width', '99%')
+      .attr('height', '99%')
       .attr('class', 'graph')
+      .attr('overflow', 'auto')
 
     graph.links.forEach(function (d) {
       d.source = graph.nodes[d.source]
@@ -1046,10 +1072,18 @@ class GraphView extends React.Component {
       .data(graph.links)
       .enter()
       .append('line')
-      .attr('x1', function (d) {return d.source.x})
-      .attr('y1', function (d) {return d.source.y})
-      .attr('x2', function (d) {return d.target.x})
-      .attr('y2', function (d) {return d.target.y})
+      .attr('x1', function (d) {
+        return d.source.x
+      })
+      .attr('y1', function (d) {
+        return d.source.y
+      })
+      .attr('x2', function (d) {
+        return d.target.x
+      })
+      .attr('y2', function (d) {
+        return d.target.y
+      })
       .attr('stroke-width', 1)
       .attr('stroke', 'black')
 
@@ -1060,35 +1094,32 @@ class GraphView extends React.Component {
       .enter()
       .append('circle')
       .attr('r', 4)
-      .attr('cx', function (d) {return d.x})
-      .attr('cy', function (d) {return d.y})
+      .attr('cx', function (d) {
+        return d.x
+      })
+      .attr('cy', function (d) {
+        return d.y
+      })
       .call(d3.drag()
-        .on('drag',drag_node))
-
-    function drag_node (d) {
-      let graph_dimensions = document.querySelector('.graph-view').getBoundingClientRect()
+        .on('drag', drag_node))
+    function drag_node(d) {
+      let graph_dimensions = document.querySelector('.graph-view .graph')
+        .getBoundingClientRect()
 
       let bounds = {
-        x_min:0,
-        x_max:graph_dimensions.width,
-        y_min:0,
-        y_max:graph_dimensions.height
+        x_min: 10,
+        x_max: graph_dimensions.width - 10,
+        y_min: 10,
+        y_max: graph_dimensions.height - 10
       }
       d.x = d3.event.x
       d.y = d3.event.y
-      if (d.x<0) {
+      if (d.x < 0) {
         d.x = bounds.x_min
       }
-      else if (d.x>bounds.x_max){
-        d.x = bounds.x_max
-      }
-      if (d.y<0) {
+      if (d.y < 0) {
         d.y = bounds.y_min
       }
-      else if (d.y>bounds.y_max){
-        d.y = bounds.y_max
-      }
-
       d3.select(this)
         .attr('cx', d.x)
         .attr('cy', d.y)
@@ -1104,12 +1135,14 @@ class GraphView extends React.Component {
       })
         .attr('x2', d.x)
         .attr('y2', d.y)
+      updateGraph()
     }
   }
 
   render() {
     return (
-      <div className={this.state.class}/>
+      <div className={this.state.class}
+           onScroll={this.updateGraph}/>
     )
   }
 }
