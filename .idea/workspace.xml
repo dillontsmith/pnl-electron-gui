@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="fbf4b50d-a4b6-405c-ab93-022561a5027c" name="Default Changelist" comment="initial commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/__sidebar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/__sidebar.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/graphview.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/graphview.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/graphview.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/graphview.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -149,7 +147,7 @@
       <workItem from="1568225598193" duration="2334000" />
       <workItem from="1568228320073" duration="6927000" />
       <workItem from="1568294646910" duration="17897000" />
-      <workItem from="1568396585188" duration="4387000" />
+      <workItem from="1568396585188" duration="9919000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1567188498160</created>
@@ -191,15 +189,9 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/components/graphview.js</url>
-          <line>73</line>
+          <line>146</line>
           <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/components/graphview.js</url>
-          <line>140</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="5" />
+          <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

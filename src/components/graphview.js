@@ -57,7 +57,7 @@ class GraphView extends React.Component {
       var percentage = Math.ceil((total_graph_height / (view_rect.height)) * 100)
       graph.setAttribute('height', `${percentage}%`)
     } else {
-      graph.setAttribute('height', '100%')
+      graph.setAttribute('height', '99%')
     }
 
     var total_graph_width = graph_rect.width + graph_rect.x
@@ -76,13 +76,13 @@ class GraphView extends React.Component {
     var svg = d3.select('.graph-view')
       .append('svg')
       .attr('width', '100%')
-      .attr('height', '100%')
+      .attr('height', '99.5%')
       .attr('class', 'graph')
       .attr('overflow', 'auto')
 
     graph.nodes.forEach(function (d) {
-        d.x = d.pos.split(',')[0]
-        d.y = d.pos.split(',')[1]
+        d.x = parseInt(d.pos.split(',')[0])
+        d.y = parseInt(d.pos.split(',')[1])
       }
     )
 
@@ -130,6 +130,42 @@ class GraphView extends React.Component {
       })
       .call(d3.drag()
         .on('drag', drag_node))
+
+    var view_rect = document.querySelector('.graph-view')
+      .getBoundingClientRect()
+    var graph_rect = document.querySelector('g.node')
+      .getBBox()
+    var widthOffset = (view_rect.width/2)-(graph_rect.width/2)
+    var heightOffset = (view_rect.height/2)-(graph_rect.height/2)
+
+    graph.nodes.forEach(function (d) {
+        d.x += widthOffset
+        d.y += heightOffset
+      }
+    )
+
+    edge
+      .attr('x1', function (d) {
+        return d.tail.x
+      })
+      .attr('y1', function (d) {
+        return d.tail.y
+      })
+      .attr('x2', function (d) {
+        return d.head.x
+      })
+      .attr('y2', function (d) {
+        return d.head.y
+      })
+
+    node
+      .attr('cx', function (d) {
+        return d.x
+      })
+      .attr('cy', function (d) {
+        return d.y
+      })
+
     function drag_node(d) {
       let graph_dimensions = document.querySelector('.graph-view .graph')
         .getBoundingClientRect()
@@ -146,6 +182,7 @@ class GraphView extends React.Component {
       }
       d.x = d3.event.x
       d.y = d3.event.y
+      console.log(d.x, d.y)
       if (d.x < bounds.x_min) {
         d.x = bounds.x_min
       }
