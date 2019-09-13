@@ -3,15 +3,7 @@ import '../css/sidebar.css'
 import add_context_menu from '../utility/add_context_menu'
 import components from '../resources/components'
 import tree from '@blueprintjs/core'
-const context_menu = [{
-  onClick: {},
-  text: 'Placeholder 1'
-},
-{
-  onClick: {},
-  text: 'Placeholder 2'
-}
-]
+
 
 function create_tree_node(primary_text="", secondary_text="", icon="") {
   var node = (
