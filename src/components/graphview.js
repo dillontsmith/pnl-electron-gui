@@ -57,7 +57,7 @@ class GraphView extends React.Component {
       var percentage = Math.ceil((total_graph_height / (view_rect.height)) * 100)
       graph.setAttribute('height', `${percentage}%`)
     } else {
-      graph.setAttribute('height', '99%')
+      graph.setAttribute('height', '99.5%')
     }
 
     var total_graph_width = graph_rect.width + graph_rect.x
@@ -70,7 +70,6 @@ class GraphView extends React.Component {
   }
 
   setGraph() {
-    console.log(graph)
     let updateGraph = this.updateGraph
     let nodeWidth = this.state.node_width
     var svg = d3.select('.graph-view')
@@ -79,6 +78,17 @@ class GraphView extends React.Component {
       .attr('height', '99.5%')
       .attr('class', 'graph')
       .attr('overflow', 'auto')
+
+    svg.append("svg:defs").append("svg:marker")
+      .attr("id", window.location.href +"/triangle")
+      .attr("refX", 6)
+      .attr("refY", 6)
+      .attr("markerWidth", 30)
+      .attr("markerHeight", 30)
+      .attr("orient", "auto")
+      .append("path")
+      .attr("d", "M 0 0 12 6 0 12 3 6")
+      .style("fill", "black");
 
     graph.nodes.forEach(function (d) {
         d.x = parseInt(d.pos.split(',')[0])
@@ -144,6 +154,19 @@ class GraphView extends React.Component {
       }
     )
 
+    function offset_point(x1,y1,x2,y2,offset){
+      var adjusted_x = x2 - x1
+      var adjusted_y = y2 - y1
+      var radius = Math.sqrt((adjusted_x**2 + adjusted_y**2))-offset
+      var phi = Math.atan2(adjusted_y, adjusted_x)
+      var new_x = radius * Math.cos(phi) + x1
+      var new_y = radius * Math.sin(phi) + y1
+      return {
+        x:new_x,
+        y:new_y
+      }
+    }
+
     edge
       .attr('x1', function (d) {
         return d.tail.x
@@ -152,11 +175,16 @@ class GraphView extends React.Component {
         return d.tail.y
       })
       .attr('x2', function (d) {
-        return d.head.x
+        var x2 = offset_point(d.tail.x,d.tail.y,d.head.x,d.head.y,25).x
+        return x2
+        // return d.head.x
       })
       .attr('y2', function (d) {
-        return d.head.y
+        var y2 = offset_point(d.tail.x,d.tail.y,d.head.x,d.head.y,25).y
+        return y2
+        // return d.head.y
       })
+      .attr("marker-end", "url(#" + window.location.href + "/triangle)");
 
     node
       .attr('cx', function (d) {
@@ -166,18 +194,17 @@ class GraphView extends React.Component {
         return d.y
       })
 
+
     function drag_node(d) {
       let graph_dimensions = document.querySelector('.graph-view .graph')
         .getBoundingClientRect()
 
-      var padding = 1
-
       var r = nodeWidth
 
       let bounds = {
-        x_min: r,
-        x_max: graph_dimensions.width - r,
-        y_min: r,
+        x_min: r + graph_dimensions.width * 0.005,
+        x_max: graph_dimensions.width - r - graph_dimensions.width * 0.005,
+        y_min: r + graph_dimensions.height * 0.005,
         y_max: graph_dimensions.height - r
       }
       d.x = d3.event.x
@@ -204,12 +231,29 @@ class GraphView extends React.Component {
       })
         .attr('x1', d.x)
         .attr('y1', d.y)
-
+        .attr('x2', function (d) {
+          var x2 = offset_point(d.tail.x,d.tail.y,d.head.x,d.head.y,25).x
+          return x2
+          // return d.head.x
+        })
+        .attr('y2', function (d) {
+          var y2 = offset_point(d.tail.x,d.tail.y,d.head.x,d.head.y,25).y
+          return y2
+          // return d.head.x
+        })
       edge.filter(function (l) {
         return l.head === d
       })
-        .attr('x2', d.x)
-        .attr('y2', d.y)
+        .attr('x2', function (d) {
+          var x2 = offset_point(d.tail.x,d.tail.y,d.head.x,d.head.y,25).x
+          return x2
+          // return d.head.x
+        })
+        .attr('y2', function (d) {
+          var y2 = offset_point(d.tail.x,d.tail.y,d.head.x,d.head.y,25).y
+          return y2
+          // return d.head.x
+        })
       // updateGraph()
     }
     svg.on( "mousedown", function() {

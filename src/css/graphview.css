@@ -1,6 +1,7 @@
 .graph-view {
     background-color: #fcfcfc;
     align-content: center;
+    justify-items: center;
     color: white;
     margin-left:1px;
     padding:0px !important;
@@ -60,4 +61,3 @@ svg *::selection {
 svg *::-moz-selection {
     background:transparent;
 }
-
