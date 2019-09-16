@@ -25,7 +25,8 @@ class GraphView extends React.Component {
     this.state = {
       class: `graph-view ${this.props.className}`,
       mounted: false,
-      node_width: 20
+      node_width: 40,
+      node_height: 30
     }
     this.setGraph = this.setGraph.bind(this)
   }
@@ -72,6 +73,7 @@ class GraphView extends React.Component {
   setGraph() {
     let updateGraph = this.updateGraph
     let nodeWidth = this.state.node_width
+    let nodeHeight = this.state.node_height
     var svg = d3.select('.graph-view')
       .append('svg')
       .attr('width', '100%')
@@ -88,11 +90,11 @@ class GraphView extends React.Component {
       .attr("orient", "auto")
       .append("path")
       .attr("d", "M 0 0 12 6 0 12 3 6")
-      .style("fill", "black");
+      .attr("stroke", "context-stroke");
 
     graph.nodes.forEach(function (d) {
-        d.x = parseInt(d.pos.split(',')[0])
-        d.y = parseInt(d.pos.split(',')[1])
+        d.x = parseInt(d._ldraw_[2].pt[0])
+        d.y = parseInt(d._ldraw_[2].pt[1])
       }
     )
 
@@ -120,26 +122,66 @@ class GraphView extends React.Component {
         return d.head.y
       })
       .attr('stroke-width', 1)
-      .attr('stroke', 'black')
+      .attr('stroke', function (d) {
+        return d.color
+      })
+      .attr("marker-end", "url(#" + window.location.href + "/triangle)")
 
     var node = svg.append('g')
       .attr('class', 'node')
-      .selectAll('circle')
+      .selectAll('ellipse')
       .data(graph.nodes)
       .enter()
-      .append('circle')
-      .attr('r', this.state.node_width)
+      .append('ellipse')
+      .attr('rx', nodeWidth)
+      .attr('ry', nodeHeight)
       .attr('cx', function (d) {
         return d.x
       })
       .attr('cy', function (d) {
         return d.y
       })
-      .style('fill', function (d){
+      .attr('fill', 'white')
+      .attr('stroke', function (d){
         return d.color
       })
       .call(d3.drag()
         .on('drag', drag_node))
+
+    var labelOffset = 5
+    var label = svg.append('g')
+      .attr('class', 'label')
+      .selectAll('text')
+      .data(graph.nodes)
+      .enter()
+      .append('text')
+      .attr("text-anchor","middle")
+      .attr('x', function (d) {
+        return d.x
+      })
+      .attr('y', function (d) {
+        return d.y + labelOffset
+      })
+      .attr('font-size', '14px')
+      .text(function (d) {
+        return d.name
+      })
+
+    function offset_point(x1,y1,x2,y2,offset){
+      var adjusted_x = x2 - x1
+      var adjusted_y = y2 - y1
+      var dist_between_centers = Math.sqrt(adjusted_x**2 + adjusted_y**2)
+      var phi = Math.atan2(adjusted_y, adjusted_x)
+      var a = nodeWidth
+      var b = nodeHeight
+      var e_radius = (dist_between_centers - a*b/Math.sqrt(a**2 * Math.sin(phi)**2 + b**2 * Math.cos(phi)**2))-5
+      var new_x = e_radius * Math.cos(phi) + x1
+      var new_y = e_radius * Math.sin(phi) + y1
+      return {
+        x:new_x,
+        y:new_y
+      }
+    }
 
     var view_rect = document.querySelector('.graph-view')
       .getBoundingClientRect()
@@ -149,42 +191,9 @@ class GraphView extends React.Component {
     var heightOffset = (view_rect.height/2)-(graph_rect.height/2)
 
     graph.nodes.forEach(function (d) {
-        d.x += widthOffset
-        d.y += heightOffset
-      }
-    )
-
-    function offset_point(x1,y1,x2,y2,offset){
-      var adjusted_x = x2 - x1
-      var adjusted_y = y2 - y1
-      var radius = Math.sqrt((adjusted_x**2 + adjusted_y**2))-offset
-      var phi = Math.atan2(adjusted_y, adjusted_x)
-      var new_x = radius * Math.cos(phi) + x1
-      var new_y = radius * Math.sin(phi) + y1
-      return {
-        x:new_x,
-        y:new_y
-      }
-    }
-
-    edge
-      .attr('x1', function (d) {
-        return d.tail.x
-      })
-      .attr('y1', function (d) {
-        return d.tail.y
-      })
-      .attr('x2', function (d) {
-        var x2 = offset_point(d.tail.x,d.tail.y,d.head.x,d.head.y,25).x
-        return x2
-        // return d.head.x
-      })
-      .attr('y2', function (d) {
-        var y2 = offset_point(d.tail.x,d.tail.y,d.head.x,d.head.y,25).y
-        return y2
-        // return d.head.y
-      })
-      .attr("marker-end", "url(#" + window.location.href + "/triangle)");
+      d.x = (view_rect.width * 0.95)  * (d.x/(graph.max_x))
+      d.y = (view_rect.height * 0.95) * (d.y/(graph.max_y))
+    })
 
     node
       .attr('cx', function (d) {
@@ -194,22 +203,81 @@ class GraphView extends React.Component {
         return d.y
       })
 
+    graph_rect = document.querySelector('g.node')
+      .getBBox()
+    widthOffset = (view_rect.width/2)-(graph_rect.width/2)
+    heightOffset = (view_rect.height/2)-(graph_rect.height/2)
+
+    graph.nodes.forEach(function (d) {
+        d.x += widthOffset
+        d.y = view_rect.height - (d.y + heightOffset)
+      }
+    )
+
+    node
+      .attr('cx', function (d) {
+        return d.x
+      })
+      .attr('cy', function (d) {
+        return d.y
+      })
+
+    edge
+      .attr('x1', function (d) {
+        return d.tail.x
+      })
+      .attr('y1', function (d) {
+        return d.tail.y
+      })
+      .attr('x2', function (d) {
+        var x2 = offset_point(d.tail.x,d.tail.y,d.head.x,d.head.y).x
+        return x2
+        // return d.head.x
+      })
+      .attr('y2', function (d) {
+        var y2 = offset_point(d.tail.x,d.tail.y,d.head.x,d.head.y).y
+        return y2
+        // return d.head.y
+      });
+
+    label
+      .attr('x', function (d) {
+        return d.x
+      })
+      .attr('y', function (d) {
+        return d.y + labelOffset
+      })
+
+    label.each(
+      function(d){
+        console.log(d)
+        node.filter(function (l){
+          return l === d
+        })
+          .attr("width", function(d){
+            console.log(label)
+            if(d.width>label.width){
+              return d.width
+            }
+            else{
+              return label.width
+            }
+          })
+      }
+    )
 
     function drag_node(d) {
       let graph_dimensions = document.querySelector('.graph-view .graph')
         .getBoundingClientRect()
 
-      var r = nodeWidth
-
       let bounds = {
-        x_min: r + graph_dimensions.width * 0.005,
-        x_max: graph_dimensions.width - r - graph_dimensions.width * 0.005,
-        y_min: r + graph_dimensions.height * 0.005,
-        y_max: graph_dimensions.height - r
+        x_min: nodeWidth + graph_dimensions.width * 0.005,
+        x_max: graph_dimensions.width - nodeWidth - graph_dimensions.width * 0.005,
+        y_min: nodeHeight + graph_dimensions.height * 0.005,
+        y_max: graph_dimensions.height - nodeHeight
       }
       d.x = d3.event.x
       d.y = d3.event.y
-      console.log(d.x, d.y)
       if (d.x < bounds.x_min) {
         d.x = bounds.x_min
       }
@@ -226,35 +294,38 @@ class GraphView extends React.Component {
         .attr('cx', d.x)
         .attr('cy', d.y)
 
+      label.filter(function (l) {
+        return l === d
+      })
+        .attr('x', d.x)
+        .attr('y', d.y + labelOffset)
+
       edge.filter(function (l) {
         return l.tail === d
       })
         .attr('x1', d.x)
         .attr('y1', d.y)
         .attr('x2', function (d) {
-          var x2 = offset_point(d.tail.x,d.tail.y,d.head.x,d.head.y,25).x
+          var x2 = offset_point(d.tail.x,d.tail.y,d.head.x,d.head.y).x
           return x2
-          // return d.head.x
         })
         .attr('y2', function (d) {
-          var y2 = offset_point(d.tail.x,d.tail.y,d.head.x,d.head.y,25).y
+          var y2 = offset_point(d.tail.x,d.tail.y,d.head.x,d.head.y).y
           return y2
-          // return d.head.x
         })
+
       edge.filter(function (l) {
         return l.head === d
       })
         .attr('x2', function (d) {
-          var x2 = offset_point(d.tail.x,d.tail.y,d.head.x,d.head.y,25).x
+          var x2 = offset_point(d.tail.x,d.tail.y,d.head.x,d.head.y).x
           return x2
-          // return d.head.x
         })
         .attr('y2', function (d) {
-          var y2 = offset_point(d.tail.x,d.tail.y,d.head.x,d.head.y,25).y
+          var y2 = offset_point(d.tail.x,d.tail.y,d.head.x,d.head.y).y
           return y2
-          // return d.head.x
         })
-      // updateGraph()
+
     }
     svg.on( "mousedown", function() {
         if( !d3.event.ctrlKey) {

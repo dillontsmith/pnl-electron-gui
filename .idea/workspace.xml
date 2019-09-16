@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="fbf4b50d-a4b6-405c-ab93-022561a5027c" name="Default Changelist" comment="initial commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/start.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/start.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/vars.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/graphview.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/graphview.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/css/graphview.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/graphview.css" afterDir="false" />
     </list>
@@ -149,7 +151,7 @@
       <workItem from="1568228320073" duration="6927000" />
       <workItem from="1568294646910" duration="17897000" />
       <workItem from="1568396585188" duration="10675000" />
-      <workItem from="1568640555313" duration="9081000" />
+      <workItem from="1568640555313" duration="21859000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1567188498160</created>
@@ -188,11 +190,6 @@
           <url>file://$PROJECT_DIR$/src/components/sidebar.js</url>
           <line>53</line>
           <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/components/graphview.js</url>
-          <line>169</line>
-          <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -8,10 +8,11 @@ const url = require('url')
 app.commandLine.appendSwitch('remote-debugging-port', '9222')
 
 function createWindow() {
+  const { width, height } = electron.screen.getPrimaryDisplay().workAreaSize
   mainWindow = new BrowserWindow(
     {
-      width: 1600,
-      height: 1200,
+      width: width,
+      height: height,
       // resizable: false,
       // maximizable: false
   })
