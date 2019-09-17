@@ -167,16 +167,17 @@ class GraphView extends React.Component {
         return d.name
       })
 
-    function offset_point(x1,y1,x2,y2){
+    function offset_point(x1,y1,x2,y2,nodeWidth,nodeHeight){
       var adjusted_x = x2 - x1
       var adjusted_y = y2 - y1
       var dist_between_centers = Math.sqrt(adjusted_x**2 + adjusted_y**2)
       var phi = Math.atan2(adjusted_y, adjusted_x)
       var a = nodeWidth
       var b = nodeHeight
-      var e_radius = (dist_between_centers - a*b/Math.sqrt(a**2 * Math.sin(phi)**2 + b**2 * Math.cos(phi)**2))-5
-      var new_x = e_radius * Math.cos(phi) + x1
-      var new_y = e_radius * Math.sin(phi) + y1
+      var radius_at_point = a*b/Math.sqrt(a**2 * Math.sin(phi)**2 + b**2 * Math.cos(phi)**2)
+      var e_radius = dist_between_centers - radius_at_point - 5
+      var new_x = (e_radius * Math.cos(phi) + x1)
+      var new_y = (e_radius * Math.sin(phi) + y1)
       return {
         x:new_x,
         y:new_y
@@ -222,24 +223,6 @@ class GraphView extends React.Component {
         return d.y
       })
 
-    edge
-      .attr('x1', function (d) {
-        return d.tail.x
-      })
-      .attr('y1', function (d) {
-        return d.tail.y
-      })
-      .attr('x2', function (d) {
-        var x2 = offset_point(d.tail.x,d.tail.y,d.head.x,d.head.y).x
-        return x2
-        // return d.head.x
-      })
-      .attr('y2', function (d) {
-        var y2 = offset_point(d.tail.x,d.tail.y,d.head.x,d.head.y).y
-        return y2
-        // return d.head.y
-      });
-
     label
       .attr('x', function (d) {
         return d.x
@@ -258,6 +241,50 @@ class GraphView extends React.Component {
         d3.select(e[0]).attr('rx',labelWidth)
       }
     })
+
+    edge
+      .attr('x1', function (d) {
+        return d.tail.x
+      })
+      .attr('y1', function (d) {
+        return d.tail.y
+      })
+      .attr('x2', function (d) {
+        var x2 = offset_point(
+          d.tail.x,
+          d.tail.y,
+          d.head.x,
+          d.head.y,
+          node.filter(function(n){
+            return n===d.head
+          })
+            .attr('rx'),
+          node.filter(function(n){
+            return n===d.head
+          })
+            .attr('ry')
+        ).x
+        return x2
+        // return d.head.x
+      })
+      .attr('y2', function (d) {
+        var y2 = offset_point(
+          d.tail.x,
+          d.tail.y,
+          d.head.x,
+          d.head.y,
+          node.filter(function(n){
+            return n===d.head
+          })
+            .attr('rx'),
+          node.filter(function(n){
+            return n===d.head
+          })
+            .attr('ry')
+        ).y
+        return y2
+        // return d.head.y
+      });
 
     function drag_node(d) {
       let graph_dimensions = document.querySelector('.graph-view .graph')
@@ -299,11 +326,37 @@ class GraphView extends React.Component {
         .attr('x1', d.x)
         .attr('y1', d.y)
         .attr('x2', function (d) {
-          var x2 = offset_point(d.tail.x,d.tail.y,d.head.x,d.head.y).x
+          var x2 = offset_point(
+            d.tail.x,
+            d.tail.y,
+            d.head.x,
+            d.head.y,
+            node.filter(function(n){
+              return n===d.head
+            })
+              .attr('rx'),
+            node.filter(function(n){
+              return n===d.head
+            })
+              .attr('ry')
+          ).x
           return x2
         })
         .attr('y2', function (d) {
-          var y2 = offset_point(d.tail.x,d.tail.y,d.head.x,d.head.y).y
+          var y2 = offset_point(
+            d.tail.x,
+            d.tail.y,
+            d.head.x,
+            d.head.y,
+            node.filter(function(n){
+              return n===d.head
+            })
+              .attr('rx'),
+            node.filter(function(n){
+              return n===d.head
+            })
+              .attr('ry')
+          ).y
           return y2
         })
 
@@ -311,11 +364,37 @@ class GraphView extends React.Component {
         return l.head === d
       })
         .attr('x2', function (d) {
-          var x2 = offset_point(d.tail.x,d.tail.y,d.head.x,d.head.y).x
+          var x2 = offset_point(
+            d.tail.x,
+            d.tail.y,
+            d.head.x,
+            d.head.y,
+            node.filter(function(n){
+              return n===d.head
+            })
+              .attr('rx'),
+            node.filter(function(n){
+              return n===d.head
+            })
+              .attr('ry')
+          ).x
           return x2
         })
         .attr('y2', function (d) {
-          var y2 = offset_point(d.tail.x,d.tail.y,d.head.x,d.head.y).y
+          var y2 = offset_point(
+            d.tail.x,
+            d.tail.y,
+            d.head.x,
+            d.head.y,
+            node.filter(function(n){
+              return n===d.head
+            })
+              .attr('rx'),
+            node.filter(function(n){
+              return n===d.head
+            })
+              .attr('ry')
+          ).y
           return y2
         })
 
