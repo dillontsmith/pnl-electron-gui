@@ -71,7 +71,6 @@ class GraphView extends React.Component {
   }
 
   setGraph() {
-    let updateGraph = this.updateGraph
     let nodeWidth = this.state.node_width
     let nodeHeight = this.state.node_height
     var svg = d3.select('.graph-view')
@@ -471,6 +470,7 @@ class GraphView extends React.Component {
           d3.selectAll( 'g.state.selection').classed( "selection", false);
         }
       });
+    this.updateGraph()
   }
   render() {
     return (
