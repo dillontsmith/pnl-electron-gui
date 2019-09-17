@@ -167,7 +167,7 @@ class GraphView extends React.Component {
         return d.name
       })
 
-    function offset_point(x1,y1,x2,y2,offset){
+    function offset_point(x1,y1,x2,y2){
       var adjusted_x = x2 - x1
       var adjusted_y = y2 - y1
       var dist_between_centers = Math.sqrt(adjusted_x**2 + adjusted_y**2)
@@ -248,23 +248,16 @@ class GraphView extends React.Component {
         return d.y + labelOffset
       })
 
-    label.each(
-      function(d){
-        console.log(d)
-        node.filter(function (l){
-          return l === d
-        })
-          .attr("width", function(d){
-            console.log(label)
-            if(d.width>label.width){
-              return d.width
-            }
-            else{
-              return label.width
-            }
-          })
+    var labels = Array.from(d3.selectAll('g.label text')._groups[0])
+    var nodes = Array.from(d3.selectAll('g.node ellipse')._groups[0])
+    var node_label_mapping = nodes.map(function(e,i){return [e, labels[i]]})
+    node_label_mapping.forEach( function(e,i){
+      var ellipseWidth = d3.select(e[0]).attr('rx')
+      var labelWidth = e[1].getBBox().width
+      if(labelWidth>=ellipseWidth){
+        d3.select(e[0]).attr('rx',labelWidth)
       }
-    )
+    })
 
     function drag_node(d) {
       let graph_dimensions = document.querySelector('.graph-view .graph')
