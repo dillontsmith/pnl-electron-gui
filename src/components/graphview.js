@@ -165,6 +165,8 @@ class GraphView extends React.Component {
       .text(function (d) {
         return d.name
       })
+      .call(d3.drag()
+        .on('drag', drag_node))
 
     function offset_point(x1,y1,x2,y2,nodeWidth,nodeHeight){
       var adjusted_x = x2 - x1
@@ -309,7 +311,9 @@ class GraphView extends React.Component {
       else if (d.y > bounds.y_max) {
         d.y = bounds.y_max
       }
-      d3.select(this)
+      node.filter(function (n) {
+        return n === d
+      })
         .attr('cx', d.x)
         .attr('cy', d.y)
 

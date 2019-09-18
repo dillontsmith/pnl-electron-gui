@@ -86,7 +86,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Attach to Node.js/Chrome.Debug Render">
+  <component name="RunManager" selected="npm.npm start">
     <configuration name="Debug Render" type="ChromiumRemoteDebugType" factoryName="Chromium Remote" port="9222" restartOnDisconnect="true">
       <method v="2" />
     </configuration>
@@ -149,7 +149,8 @@
       <workItem from="1568294646910" duration="17897000" />
       <workItem from="1568396585188" duration="10675000" />
       <workItem from="1568640555313" duration="24741000" />
-      <workItem from="1568733605972" duration="4109000" />
+      <workItem from="1568733605972" duration="4405000" />
+      <workItem from="1568747076851" duration="882000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1567188498160</created>
@@ -191,13 +192,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/components/graphview.js</url>
-          <line>235</line>
+          <line>237</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/components/graphview.js</url>
-          <line>251</line>
-          <properties lambdaOrdinal="-1" />
+          <line>253</line>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>
