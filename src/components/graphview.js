@@ -1,13 +1,8 @@
 import React from 'react'
-import logo from '../resources/logo.svg'
 import '../css/graphview.css'
-import example_gv from '../resources/basic_composition_gv'
 import * as d3 from 'd3'
-import * as d3Graphviz from 'd3-graphviz'
 import add_context_menu from '../utility/add_context_menu'
 import graph from '../resources/graph'
-
-const _ = d3Graphviz.graphviz
 
 const context_menu = [{
   onClick: {},
@@ -48,6 +43,7 @@ class GraphView extends React.Component {
   }
 
   updateGraph() {
+    var percentage;
     var graph = document.querySelector('.graph-view .graph')
     var view_rect = document.querySelector('.graph-view')
       .getBoundingClientRect()
@@ -55,7 +51,7 @@ class GraphView extends React.Component {
       .getBBox()
     var total_graph_height = graph_rect.height + graph_rect.y
     if (total_graph_height > view_rect.height) {
-      var percentage = Math.ceil((total_graph_height / (view_rect.height)) * 100)
+      percentage = Math.ceil((total_graph_height / (view_rect.height)) * 100)
       graph.setAttribute('height', `${percentage}%`)
     } else {
       graph.setAttribute('height', '99.5%')
@@ -63,7 +59,7 @@ class GraphView extends React.Component {
 
     var total_graph_width = graph_rect.width + graph_rect.x
     if (total_graph_width > view_rect.width) {
-      var percentage = Math.ceil((total_graph_width / view_rect.width) * 100)
+      percentage = Math.ceil((total_graph_width / view_rect.width) * 100)
       graph.setAttribute('width', `${percentage}%`)
     } else {
       graph.setAttribute('width', '100%')
@@ -466,7 +462,7 @@ class GraphView extends React.Component {
       })
       .on( "mouseout", function() {
         var s = svg.select( "rect.selection");
-        if( !s.empty() && d3.event.relatedTarget.tagName=='HTML' ) {
+        if( !s.empty() && d3.event.relatedTarget.tagName==='HTML' ) {
           // Remove selection frame
           svg.selectAll( "rect.selection").remove();
 
