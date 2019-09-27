@@ -1,8 +1,4 @@
 import React from 'react'
-import SideBar from './sidebar'
-import GraphView from './graphview'
-import ToolTipBox from './tooltipbox'
-import ParameterControlBox from './parametercontrolbox'
 import '../css/layout.css'
 import '../../node_modules/react-grid-layout/css/styles.css'
 import '../../node_modules/react-resizable/css/styles.css'

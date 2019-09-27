@@ -14,7 +14,9 @@ export default class Workspace extends React.Component {
     }
     this.componentWillMount = this.componentWillMount.bind(this)
     this.componentDidMount = this.componentDidMount.bind(this)
+    this.get_mouse_on_drag = this.get_mouse_on_drag.bind(this)
     this.set_tool_tip = this.set_tool_tip.bind(this)
+    var mouse
   }
 
   set_tool_tip(text) {
@@ -23,7 +25,20 @@ export default class Workspace extends React.Component {
     )
   }
 
+  get_mouse_on_drag() {
+    console.log(this.state.mouse)
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('mousemove')
+  }
+
   componentWillMount() {
+    window.addEventListener('mousemove',(e)=>
+      {
+        this.state.mouse = e
+      }
+    )
     this.setState({
         layout:[
           {i: 'a', x: 0, y: 0, w: 2,  h: 24},
@@ -35,10 +50,8 @@ export default class Workspace extends React.Component {
           <div key="a">
             <SideBar hover={() => this.set_tool_tip('sidebar')}
                      className='pnl-panel'
-                     onResize={function()
-                     {console.log(this)
-                     }
-                     }
+                     // onResize={this.get_mouse_on_drag}
+                     onResizeStart={this.get_mouse_on_drag}
             />
           </div>,
           <div key="b">
