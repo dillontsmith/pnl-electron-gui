@@ -54,7 +54,7 @@ class GraphView extends React.Component {
       percentage = Math.ceil((total_graph_height / (view_rect.height)) * 100)
       graph.setAttribute('height', `${percentage}%`)
     } else {
-      graph.setAttribute('height', '99.5%')
+      graph.setAttribute('height', '100%')
     }
 
     var total_graph_width = graph_rect.width + graph_rect.x
@@ -77,7 +77,7 @@ class GraphView extends React.Component {
       .attr('overflow', 'auto')
 
     svg.append("svg:defs").append("svg:marker")
-      .attr("id", window.location.href +"/triangle")
+      .attr("id", window.location.href +"/triangle_orange")
       .attr("refX", 6)
       .attr("refY", 6)
       .attr("markerWidth", 30)
@@ -85,7 +85,18 @@ class GraphView extends React.Component {
       .attr("orient", "auto")
       .append("path")
       .attr("d", "M 0 0 12 6 0 12 3 6")
-      .attr("stroke", "context-stroke");
+      .attr("fill", "orange");
+
+    svg.append("svg:defs").append("svg:marker")
+      .attr("id", window.location.href +"/triangle_black")
+      .attr("refX", 6)
+      .attr("refY", 6)
+      .attr("markerWidth", 30)
+      .attr("markerHeight", 30)
+      .attr("orient", "auto")
+      .append("path")
+      .attr("d", "M 0 0 12 6 0 12 3 6")
+      .attr("fill", "black");
 
     graph.nodes.forEach(function (d) {
         d.x = parseInt(d._ldraw_[2].pt[0])
@@ -120,7 +131,14 @@ class GraphView extends React.Component {
       .attr('stroke', function (d) {
         return d.color
       })
-      .attr("marker-end", "url(#" + window.location.href + "/triangle)")
+
+    d3.selectAll('g.edge line')
+      .each(function () {
+        var d3Element = d3.select(this)
+        var color = d3Element.attr('stroke')
+        d3Element
+          .attr('marker-end', 'url(#' + window.location.href + `/triangle_${color})`)
+      })
 
     var node = svg.append('g')
       .attr('class', 'node')
@@ -230,8 +248,10 @@ class GraphView extends React.Component {
 
     var labels = Array.from(d3.selectAll('g.label text')._groups[0])
     var nodes = Array.from(d3.selectAll('g.node ellipse')._groups[0])
-    var node_label_mapping = nodes.map(function(e,i){return [e, labels[i]]})
-    node_label_mapping.forEach( function(e,i){
+    var node_label_arrays = nodes.map(function(e,i){return [e, labels[i]]})
+    var node_label_mapping = {}
+    node_label_arrays.forEach( function(e){
+      node_label_mapping[e[0]]=e[1]
       var ellipseWidth = d3.select(e[0]).attr('rx')
       var labelWidth = e[1].getBBox().width
       if(labelWidth>=ellipseWidth){
@@ -287,12 +307,21 @@ class GraphView extends React.Component {
       let graph_dimensions = document.querySelector('.graph-view .graph')
         .getBoundingClientRect()
 
+      var width = parseFloat(node.filter((n)=>{
+        return n===d}
+        ).attr('rx'))
+
+      var height = parseFloat(node.filter((n)=>{
+        return n===d}
+      ).attr('ry'))
+
       let bounds = {
-        x_min: nodeWidth + graph_dimensions.width * 0.005,
-        x_max: graph_dimensions.width - nodeWidth - graph_dimensions.width * 0.005,
-        y_min: nodeHeight + graph_dimensions.height * 0.005,
-        y_max: graph_dimensions.height - nodeHeight
+        x_min: width,
+        x_max: graph_dimensions.width - width,
+        y_min: height,
+        y_max: graph_dimensions.height - height
       }
+
       d.x = d3.event.x
       d.y = d3.event.y
       if (d.x < bounds.x_min) {
