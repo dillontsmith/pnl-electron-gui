@@ -5,12 +5,12 @@ import React from 'react';
 import '../css/app.css';
 
 // import components
-import MainPanel from '../components/mainpanel'
+import Workspace from '../components/workspace'
 
 function App() {
   return (
     <div className = "app">
-      <MainPanel/>
+      <Workspace/>
     </div>
   );
 }

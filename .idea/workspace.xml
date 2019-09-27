@@ -2,14 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fbf4b50d-a4b6-405c-ab93-022561a5027c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/workspace.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/css/layout.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/mainpanel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/mainpanel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/graphview.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/graphview.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/mainpanel.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/mainpanel.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/parametercontrolbox.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/parametercontrolbox.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/sidebar.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/sidebar.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/tooltipbox.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/tooltipbox.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/mainpanel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/sidebar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sidebar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/mainpanel.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -165,11 +165,10 @@
       <item itemvalue="JavaScript Debug.Debug Application" />
       <item itemvalue="JavaScript Debug.index.html (1)" />
       <item itemvalue="JavaScript Debug.index.html" />
-      <item itemvalue="Jest.test.test.js" />
       <item itemvalue="Jest.test_test.js" />
-      <item itemvalue="npm.npm start" />
       <item itemvalue="Jest.test.test.js (1)" />
       <item itemvalue="Jest.adds 1 + 2 to equal 3" />
+      <item itemvalue="npm.npm start" />
     </list>
     <recent_temporary>
       <list>
@@ -212,7 +211,7 @@
       <workItem from="1568840691232" duration="20000" />
       <workItem from="1569257257179" duration="271000" />
       <workItem from="1569332925990" duration="122000" />
-      <workItem from="1569504072679" duration="17024000" />
+      <workItem from="1569504072679" duration="23377000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1567188498160</created>
@@ -265,7 +264,7 @@
       <breakpoints>
         <line-breakpoint type="javascript">
           <url>file://$PROJECT_DIR$/src/components/sidebar.js</url>
-          <line>52</line>
+          <line>69</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">

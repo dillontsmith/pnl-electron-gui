@@ -14,6 +14,7 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.14.3",
     "foreman": "^3.0.1",
+    "re-resizable": "^6.0.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-grid-layout": "^0.16.6",

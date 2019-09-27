@@ -3,6 +3,14 @@ import * as React from 'react'
 import { Classes, Tree } from '@blueprintjs/core'
 import '../css/sidebar.css'
 
+import { Resizable } from "re-resizable"
+
+const style = {
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+};
+
 export default class SideBar extends React.Component {
   constructor(props) {
     super(props)
@@ -14,7 +22,16 @@ export default class SideBar extends React.Component {
 
   render() {
     return (
-      <div className='sidebar'>
+      <Resizable
+        style={style}
+        onResize={this.props.onResize}
+        className='sidebar'
+        defaultSize={
+          {
+            width:'100%',
+            height:'100%'
+          }
+        }>
         <Tree
           contents={this.state.nodes}
           onNodeClick={this.handleNodeClick}
@@ -22,7 +39,7 @@ export default class SideBar extends React.Component {
           onNodeExpand={this.handleNodeExpand}
           className={this.state.class}
         />
-      </div>
+      </Resizable>
     )
   }
 
