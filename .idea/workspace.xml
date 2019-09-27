@@ -3,12 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="fbf4b50d-a4b6-405c-ab93-022561a5027c" name="Default Changelist" comment="initial commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.test.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/graphview.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/graphview.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/sidebar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sidebar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/tooltipbox.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/tooltipbox.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/basic_composition_gv.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/logo.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -67,15 +64,15 @@
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/css" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public" />
+      <recent name="$PROJECT_DIR$/src/resources" />
+      <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/src/components" />
       <recent name="$PROJECT_DIR$/src/components/app" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/resources" />
-      <recent name="$PROJECT_DIR$/public" />
-      <recent name="$PROJECT_DIR$/src" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/css" />
       <recent name="$PROJECT_DIR$/src/components" />
       <recent name="$PROJECT_DIR$/src/components/app" />
     </key>
@@ -92,8 +89,21 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Jest.test.test.js (1)">
+  <component name="RunManager" selected="npm.npm start">
     <configuration name="Debug Render" type="ChromiumRemoteDebugType" factoryName="Chromium Remote" port="9222" restartOnDisconnect="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="adds 1 + 2 to equal 3" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/test/sum.test.js" />
+      <test-names>
+        <test-name value="adds 1 + 2 to equal 3" />
+      </test-names>
       <method v="2" />
     </configuration>
     <configuration name="test.test.js (1)" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
@@ -154,9 +164,11 @@
       <item itemvalue="Jest.test_test.js" />
       <item itemvalue="npm.npm start" />
       <item itemvalue="Jest.test.test.js (1)" />
+      <item itemvalue="Jest.adds 1 + 2 to equal 3" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Jest.adds 1 + 2 to equal 3" />
         <item itemvalue="Jest.test.test.js (1)" />
         <item itemvalue="Jest.test_test.js" />
         <item itemvalue="JavaScript Debug.index.html" />
@@ -195,7 +207,7 @@
       <workItem from="1568840691232" duration="20000" />
       <workItem from="1569257257179" duration="271000" />
       <workItem from="1569332925990" duration="122000" />
-      <workItem from="1569504072679" duration="2967000" />
+      <workItem from="1569504072679" duration="13497000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1567188498160</created>
@@ -237,13 +249,19 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/components/graphview.js</url>
-          <line>233</line>
+          <line>252</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/components/graphview.js</url>
-          <line>249</line>
+          <line>269</line>
           <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/components/graphview.js</url>
+          <line>317</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
