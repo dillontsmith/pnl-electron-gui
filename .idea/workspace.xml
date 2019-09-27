@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fbf4b50d-a4b6-405c-ab93-022561a5027c" name="Default Changelist" comment="initial commit">
+    <list default="true" id="fbf4b50d-a4b6-405c-ab93-022561a5027c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/app.test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/graphview.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/graphview.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/mainpanel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/mainpanel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/graphview.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/graphview.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/mainpanel.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/mainpanel.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/parametercontrolbox.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/parametercontrolbox.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/sidebar.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/sidebar.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/tooltipbox.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/tooltipbox.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -207,7 +212,7 @@
       <workItem from="1568840691232" duration="20000" />
       <workItem from="1569257257179" duration="271000" />
       <workItem from="1569332925990" duration="122000" />
-      <workItem from="1569504072679" duration="13497000" />
+      <workItem from="1569504072679" duration="17024000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1567188498160</created>
@@ -216,7 +221,21 @@
       <option name="project" value="LOCAL" />
       <updated>1567188498160</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="tests&#10;&#10;Specified jest as test runner&#10;&#10;Removed example test from create-react-app">
+      <created>1569603463805</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1569603463805</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Added orange arrowheads for learning projections">
+      <created>1569603514158</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1569603514158</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -237,7 +256,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="initial commit" />
+    <MESSAGE value="tests&#10;&#10;Specified jest as test runner&#10;&#10;Removed example test from create-react-app" />
+    <MESSAGE value="Added orange arrowheads for learning projections" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added orange arrowheads for learning projections" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
