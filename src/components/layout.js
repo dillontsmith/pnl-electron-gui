@@ -12,15 +12,14 @@ export default class Layout extends React.Component {
     // this.componentDidMount = this.componentDidMount.bind(this)
   }
 
-
   render() {
-      // layout is an array of objects, see the demo for more complete usage
     return (
-      <GridLayout className="layout"
+      <GridLayout className={this.props.className}
                   layout={this.props.layout}
-                  cols={12}
-                  rowHeight={30}
-                  width={2560}
+                  cols={this.props.cols}
+                  rowHeight={this.props.rowHeight}
+                  width={this.props.width}
+                  margin={this.props.margin}
                   isDraggable={false}
                   isResizable={false}>
         {
