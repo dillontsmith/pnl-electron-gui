@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="fbf4b50d-a4b6-405c-ab93-022561a5027c" name="Default Changelist" comment="Added orange arrowheads for learning projections">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/layout.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/sidebar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sidebar.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/workspace.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/workspace.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -160,9 +158,9 @@
       <item itemvalue="JavaScript Debug.Debug Application" />
       <item itemvalue="JavaScript Debug.index.html (1)" />
       <item itemvalue="JavaScript Debug.index.html" />
-      <item itemvalue="Jest.test_test.js" />
-      <item itemvalue="Jest.test.test.js (1)" />
       <item itemvalue="Jest.adds 1 + 2 to equal 3" />
+      <item itemvalue="Jest.test.test.js (1)" />
+      <item itemvalue="Jest.test_test.js" />
       <item itemvalue="npm.npm start" />
     </list>
     <recent_temporary>
@@ -208,6 +206,7 @@
       <workItem from="1569332925990" duration="122000" />
       <workItem from="1569504072679" duration="27058000" />
       <workItem from="1569852732875" duration="13056000" />
+      <workItem from="1569878539975" duration="820000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1567188498160</created>
