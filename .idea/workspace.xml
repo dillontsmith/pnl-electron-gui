@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="fbf4b50d-a4b6-405c-ab93-022561a5027c" name="Default Changelist" comment="Added orange arrowheads for learning projections">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/layout.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/sidebar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sidebar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/workspace.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/workspace.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/layout.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/layout.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -206,7 +204,8 @@
       <workItem from="1568840691232" duration="20000" />
       <workItem from="1569257257179" duration="271000" />
       <workItem from="1569332925990" duration="122000" />
-      <workItem from="1569504072679" duration="27030000" />
+      <workItem from="1569504072679" duration="27058000" />
+      <workItem from="1569852732875" duration="306000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1567188498160</created>
@@ -275,7 +274,6 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/components/graphview.js</url>
           <line>317</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>

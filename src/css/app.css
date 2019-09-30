@@ -9,3 +9,7 @@ html, body {
   min-height: 900px;
   overflow:hidden;
 }
+
+.app {
+  background-color:#f9f3e8;
+}
