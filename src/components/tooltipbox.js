@@ -10,7 +10,7 @@ export default class Tooltipbox extends React.Component{
   }
   render(){
     return (
-      <div className={this.state.class}>
+      <div className={this.props.className}>
           {this.props.text}
       </div>
     )

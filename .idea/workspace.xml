@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="fbf4b50d-a4b6-405c-ab93-022561a5027c" name="Default Changelist" comment="Added orange arrowheads for learning projections">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/tooltipbox.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/tooltipbox.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/workspace.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/workspace.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -206,7 +207,8 @@
       <workItem from="1569332925990" duration="122000" />
       <workItem from="1569504072679" duration="27058000" />
       <workItem from="1569852732875" duration="13056000" />
-      <workItem from="1569878539975" duration="820000" />
+      <workItem from="1569878539975" duration="1183000" />
+      <workItem from="1569936178197" duration="2883000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1567188498160</created>
