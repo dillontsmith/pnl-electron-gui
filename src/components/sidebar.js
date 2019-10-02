@@ -30,9 +30,9 @@ export default class SideBar extends React.Component {
         enable={{
           top:false, right:true, bottom:true, left:false, topRight:false, bottomRight:true, bottomLeft:false, topLeft:false }}
         className='sidebar'
-        defaultSize={
-          this.props.defaultSize
-        }
+        // defaultSize={
+        //   this.props.defaultSize
+        // }
         size={
           this.props.size
         }

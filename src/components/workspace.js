@@ -93,6 +93,7 @@ export default class Workspace extends React.Component {
     this.mouse_direction = dir
   }
   get_mouse_on_drag(){
+    console.log(this.state.rowOneHorizontalFactor)
     var self = this
     var mouse_current = self.state.mouse
     var mouse_initial = self.mouse_initial
@@ -131,7 +132,12 @@ export default class Workspace extends React.Component {
                  onResizeStart={this.get_mouse_initial}
                  onResizeStop={this.get_mouse_on_drag}
                  onResize={this.get_mouse_on_drag}
-                 defaultSize={{height:(this.rowOneVerticalFactor * 30) + (this.rowOneVerticalFactor * 10)}}
+                 size={
+                     {
+                       height:(this.state.rowOneVerticalFactor * 30) + (this.state.rowOneVerticalFactor * 10) - 10,
+                       width:this.state.rowOneHorizontalFactor - 10
+                     }
+                 }
         />
       </div>,
       <div key="b">
@@ -139,7 +145,19 @@ export default class Workspace extends React.Component {
                    onResizeStart={this.get_mouse_initial}
                    onResizeStop={this.get_mouse_on_drag}
                    onResize={this.get_mouse_on_drag}
-                   defaultSize={{height:(this.rowOneVerticalFactor * 30) + (this.rowOneVerticalFactor * 10)}}/>
+                   size={
+                     {
+                       height:(this.state.rowOneVerticalFactor * 30) + (this.state.rowOneVerticalFactor * 10) - 10,
+                       width: this.state.horizontalResolution - this.state.rowOneHorizontalFactor - 10 - 10
+                     }
+                   }
+                   // defaultSize={
+                   //   {
+                   //     height:(this.rowOneVerticalFactor * 30) + (this.rowOneVerticalFactor * 10),
+                   //     width:'100%'
+                   //   }
+                   // }
+        />
       </div>
     ]
     var row_two_components = [
@@ -160,20 +178,21 @@ export default class Workspace extends React.Component {
         components={[
           <div key="outer_a">
             <Layout
+              margin={[0,0]}
               className={'row_one'}
               layout={[
                 {
                   i: 'a',
-                  x: 0,
+                  x: 10,
                   y: 0,
-                  w: this.state.rowOneHorizontalFactor,
+                  w: this.state.rowOneHorizontalFactor - 10,
                   h: 24
                 },
                 {
                   i: 'b',
-                  x: this.state.horizontalResolution - this.state.rowOneHorizontalFactor,
+                  x: this.state.horizontalResolution - this.state.rowOneHorizontalFactor - 10,
                   y: 0,
-                  w: this.state.horizontalResolution - this.state.rowOneHorizontalFactor,
+                  w: this.state.horizontalResolution - this.state.rowOneHorizontalFactor -10,
                   h: 24
                 }
               ]}

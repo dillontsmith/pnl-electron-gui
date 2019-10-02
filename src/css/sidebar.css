@@ -29,3 +29,7 @@
 .react-grid.item.cssTransforms {
     transition-property: none!important
 }
+
+.react-grid-layout {
+    transition: none!important;
+}
