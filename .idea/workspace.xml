@@ -3,8 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="fbf4b50d-a4b6-405c-ab93-022561a5027c" name="Default Changelist" comment="Added orange arrowheads for learning projections">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/tooltipbox.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/tooltipbox.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/graphview.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/graphview.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/sidebar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sidebar.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/workspace.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/workspace.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/sidebar.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/sidebar.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -63,15 +67,15 @@
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/css" />
+      <recent name="$PROJECT_DIR$/src/components" />
+      <recent name="$PROJECT_DIR$/src/components/app" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/public" />
       <recent name="$PROJECT_DIR$/src/resources" />
       <recent name="$PROJECT_DIR$/src" />
-      <recent name="$PROJECT_DIR$/src/components" />
-      <recent name="$PROJECT_DIR$/src/components/app" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/css" />
       <recent name="$PROJECT_DIR$/src/components" />
       <recent name="$PROJECT_DIR$/src/components/app" />
     </key>
@@ -208,7 +212,9 @@
       <workItem from="1569504072679" duration="27058000" />
       <workItem from="1569852732875" duration="13056000" />
       <workItem from="1569878539975" duration="1183000" />
-      <workItem from="1569936178197" duration="2883000" />
+      <workItem from="1569936178197" duration="4795000" />
+      <workItem from="1569965782729" duration="75000" />
+      <workItem from="1570022542972" duration="8945000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1567188498160</created>
@@ -261,22 +267,22 @@
       <breakpoints>
         <line-breakpoint type="javascript">
           <url>file://$PROJECT_DIR$/src/components/sidebar.js</url>
-          <line>72</line>
+          <line>74</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint type="javascript">
           <url>file://$PROJECT_DIR$/src/components/graphview.js</url>
-          <line>252</line>
+          <line>258</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint type="javascript">
           <url>file://$PROJECT_DIR$/src/components/graphview.js</url>
-          <line>269</line>
+          <line>275</line>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint type="javascript">
           <url>file://$PROJECT_DIR$/src/components/graphview.js</url>
-          <line>317</line>
+          <line>323</line>
           <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>

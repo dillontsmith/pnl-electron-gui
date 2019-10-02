@@ -20,3 +20,12 @@
 .bp3-icon-cog {
     color: #61dafb
 }
+
+.react-grid-item {
+    transition: none!important;
+    transition-property: none!important;
+}
+
+.react-grid.item.cssTransforms {
+    transition-property: none!important
+}

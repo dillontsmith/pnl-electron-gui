@@ -26,15 +26,17 @@ export default class SideBar extends React.Component {
         style={style}
         onResize={this.props.onResize}
         onResizeStart={this.props.onResizeStart}
+        onResizeStop={this.props.onResizeStop}
         enable={{
           top:false, right:true, bottom:true, left:false, topRight:false, bottomRight:true, bottomLeft:false, topLeft:false }}
         className='sidebar'
         defaultSize={
-          {
-            width:'100%',
-            height:'100%'
-          }
-        }>
+          this.props.defaultSize
+        }
+        size={
+          this.props.size
+        }
+      >
         <Tree
           contents={this.state.nodes}
           onNodeClick={this.handleNodeClick}

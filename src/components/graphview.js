@@ -3,6 +3,7 @@ import '../css/graphview.css'
 import * as d3 from 'd3'
 import add_context_menu from '../utility/add_context_menu'
 import graph from '../resources/graph'
+import { Resizable } from 're-resizable'
 
 const context_menu = [{
   onClick: {},
@@ -13,6 +14,11 @@ const context_menu = [{
     text: 'Placeholder 2'
   }
 ]
+const style = {
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+};
 
 class GraphView extends React.Component {
   constructor(props) {
@@ -503,8 +509,32 @@ class GraphView extends React.Component {
   }
   render() {
     return (
+      <Resizable
+        style={style}
+        onResize={this.props.onResize}
+        onResizeStart={this.props.onResizeStart}
+        onResizeStop={this.props.onResizeStop}
+        enable={{
+          top:false,
+          right:false,
+          bottom:true,
+          left:true,
+          topRight:false,
+          bottomRight:false,
+          bottomLeft:true,
+          topLeft:false
+        }}
+        className='sidebar'
+        defaultSize={
+          this.props.defaultSize
+        }
+        size={
+          this.props.size
+        }
+      >
       <div className={this.state.class}
            onScroll={this.updateGraph}/>
+      </Resizable>
     )
   }
 }

@@ -5,6 +5,10 @@ import GridLayout from 'react-grid-layout'
 import GraphView from './graphview'
 import ToolTipBox from './tooltipbox'
 import ParameterControlBox from './parametercontrolbox'
+import { Resizable } from 're-resizable'
+
+var w = window.innerWidth
+var h = window.innerHeight
 
 export default class Workspace extends React.Component {
   constructor(props) {
@@ -34,29 +38,12 @@ export default class Workspace extends React.Component {
           rowHeight: 30,
           width: 2560
       },
-      rowOne: {
-        className: 'row_one',
-          layout: [
-          {
-            i: 'a',
-            x: 0,
-            y: 0,
-            w: 430,
-            h: 24
-          },
-          {
-            i: 'b',
-            x: 430,
-            y: 0,
-            w: 2130,
-            h: 24
-          }
-        ],
-          components: [],
-          cols: 2560,
-          rowHeight: 30,
-          width: 2560
-      },
+      horizontalResolution:w,
+      verticalResolution:h,
+      rowOneHorizontalFactor:430,
+      rowOneVerticalFactor:24,
+      rowTwoHorizontalFactor:430,
+      rowTwoVerticalFactor:8,
       rowTwo: {
         className: 'row_two',
           layout: [
@@ -81,6 +68,7 @@ export default class Workspace extends React.Component {
           width: 2560
       }
     }
+    this.resize_enabled = true
     this.componentWillMount = this.componentWillMount.bind(this)
     this.get_mouse_on_drag = this.get_mouse_on_drag.bind(this)
     this.get_mouse_initial = this.get_mouse_initial.bind(this)
@@ -91,8 +79,6 @@ export default class Workspace extends React.Component {
 
   set_components() {
     var self = this
-
-
   }
 
   set_tool_tip(text) {
@@ -106,66 +92,32 @@ export default class Workspace extends React.Component {
     this.mouse_initial = this.state.mouse
     this.mouse_direction = dir
   }
-
-  get_mouse_on_drag(component_arr, layout_arr) {
-    // var newState = {...this.state.rowOne}
-    // var mouse_current = this.state.mouse
-    // var mouse_initial = this.mouse_initial
-    // if (this.mouse_current.x > mouse_initial.x)
-    // {
-    //   newState.layout = [
-    //     {
-    //       i: 'a',
-    //       x: 30,
-    //       y: 0,
-    //       w: 430,
-    //       h: 24
-    //     },
-    //     {
-    //       i: 'b',
-    //       x: 430,
-    //       y: 0,
-    //       w: 2130,
-    //       h: 24
-    //     }
-    //   ]
-    //   this.setState({
-    //     rowOne:newState,
-    //   })
-    //   this.mouse_initial = this.state.mouse
-    // }
-    // this.set_tool_tip('on drag')
-    // var component_index = component_arr.horizontal[1]
-    // var mouse_current = this.state.mouse
-    // var mouse_initial = this.mouse_initial
-    // var mouse_direction = this.mouse_direction
-    // var self = this
-    // if (mouse_direction === 'right') {
-    //   if (mouse_current.x > mouse_initial.x){
-    //     var offset = mouse_current.x - mouse_initial.x
-    //     var layout_key = layout_arr.horizontal[1]
-    //     var new_layout = layout_arr.horizontal[0]
-    //     new_layout[component_index].w += offset
-    //     new_layout[component_index+1].w -= offset
-    //     new_layout[component_index+1].x += offset
-    //     var state = {...this.state[layout_key]}
-    //     // console.log(state)
-    //     state.layout = new_layout
-    //     self.setState({layout_key:state})
-    //     this.mouse_initial = mouse_current
-    //     console.log(self.state)
-    //     this.forceUpdate()
-    //   }
-    // }
-  }
+  get_mouse_on_drag(){
+    var self = this
+    var mouse_current = self.state.mouse
+    var mouse_initial = self.mouse_initial
+    var offset = mouse_current.x - mouse_initial.x
+    self.setState({rowOneHorizontalFactor:self.state.rowOneHorizontalFactor+offset})
+    self.mouse_initial = mouse_current
+    }
 
   componentWillUnmount() {
     window.removeEventListener('mousemove')
+    window.removeEventListener('mousedown')
+    window.removeEventListener('mouseup')
   }
 
   componentWillMount() {
+    window.addEventListener('mousedown', (e) => {
+      this.mouse_status = 'down'
+      }
+    )
     window.addEventListener('mousemove', (e) => {
-        this.setState({mouse:e})
+      this.setState({mouse:e})
+      }
+    )
+    window.addEventListener('mouseup', (e) => {
+        this.mouse_status = 'up'
       }
     )
   }
@@ -177,22 +129,17 @@ export default class Workspace extends React.Component {
         <SideBar hover={() => this.set_tool_tip('sidebar')}
                  className='pnl-panel'
                  onResizeStart={this.get_mouse_initial}
-                 onResize={function () {
-                   self.get_mouse_on_drag(
-                     {
-                       'horizontal': [{...self.state.rowOne.components}, 0],
-                       'vertical': [{...self.state.outerGrid.components}, 0]
-                     },
-                     {
-                       'horizontal': [{...self.state.rowOne.layout},'rowOne'],
-                       'vertical':  [{...self.state.outerGrid.layout},'outerGrid']
-                     }
-                   )
-                 }}
+                 onResizeStop={this.get_mouse_on_drag}
+                 onResize={this.get_mouse_on_drag}
+                 defaultSize={{height:(this.rowOneVerticalFactor * 30) + (this.rowOneVerticalFactor * 10)}}
         />
       </div>,
       <div key="b">
-        <GraphView className='pnl-panel'/>
+        <GraphView className='pnl-panel'
+                   onResizeStart={this.get_mouse_initial}
+                   onResizeStop={this.get_mouse_on_drag}
+                   onResize={this.get_mouse_on_drag}
+                   defaultSize={{height:(this.rowOneVerticalFactor * 30) + (this.rowOneVerticalFactor * 10)}}/>
       </div>
     ]
     var row_two_components = [
@@ -213,12 +160,28 @@ export default class Workspace extends React.Component {
         components={[
           <div key="outer_a">
             <Layout
-              className={this.state.rowOne.className}
-              layout={this.state.rowOne.layout}
+              className={'row_one'}
+              layout={[
+                {
+                  i: 'a',
+                  x: 0,
+                  y: 0,
+                  w: this.state.rowOneHorizontalFactor,
+                  h: 24
+                },
+                {
+                  i: 'b',
+                  x: this.state.horizontalResolution - this.state.rowOneHorizontalFactor,
+                  y: 0,
+                  w: this.state.horizontalResolution - this.state.rowOneHorizontalFactor,
+                  h: 24
+                }
+              ]}
               components={row_one_components}
-              cols={this.state.rowOne.cols}
-              rowHeight={this.state.rowOne.rowHeight}
-              width={this.state.rowOne.width}/>
+              cols={this.state.horizontalResolution}
+              rowHeight={30}
+              width={this.state.horizontalResolution}
+              preventCollision={true}/>
           </div>,
           <div key="outer_b">
             <Layout
