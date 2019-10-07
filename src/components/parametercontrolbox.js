@@ -1,5 +1,12 @@
 import React from 'react'
 import '../css/parametercontrolbox.css'
+import { Resizable } from 're-resizable'
+
+const style = {
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+};
 
 export class ParameterControlBox extends React.Component {
   constructor(props) {
@@ -16,9 +23,33 @@ export class ParameterControlBox extends React.Component {
 
   render() {
     return (
-      <div className={this.state.class}>
-          {this.state.text}
-      </div>
+      <Resizable
+        style={style}
+        onResize={this.props.onResize}
+        onResizeStart={this.props.onResizeStart}
+        onResizeStop={this.props.onResizeStop}
+        enable={{
+          top:false,
+          right:false,
+          bottom:true,
+          left:true,
+          topRight:false,
+          bottomRight:false,
+          bottomLeft:true,
+          topLeft:false
+        }}
+        className='sidebar'
+        defaultSize={
+          this.props.defaultSize
+        }
+        size={
+          this.props.size
+        }
+      >
+        <div className={this.state.class}>
+            {this.state.text}
+        </div>
+      </Resizable>
     )
   };
 }

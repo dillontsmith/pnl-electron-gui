@@ -2,8 +2,8 @@
 @import '~@blueprintjs/icons/lib/css/blueprint-icons.css';
 
 .sidebar{
-    align-self: stretch;
-    height:100%;
+    /*align-self: stretch;*/
+    /*height:100%;*/
 }
 .bp3-tree {
     height:100%;
