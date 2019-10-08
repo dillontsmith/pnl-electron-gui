@@ -26,9 +26,9 @@ export default class Tooltipbox extends React.Component{
         onResizeStart={this.props.onResizeStart}
         onResizeStop={this.props.onResizeStop}
         enable={{
-          top: false,
+          top: true,
           right: true,
-          bottom: true,
+          bottom: false,
           left: false,
           topRight: false,
           bottomRight: true,

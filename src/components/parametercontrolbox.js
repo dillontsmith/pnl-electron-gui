@@ -29,9 +29,9 @@ export class ParameterControlBox extends React.Component {
         onResizeStart={this.props.onResizeStart}
         onResizeStop={this.props.onResizeStop}
         enable={{
-          top:false,
+          top:true,
           right:false,
-          bottom:true,
+          bottom:false,
           left:true,
           topRight:false,
           bottomRight:false,

@@ -524,7 +524,7 @@ class GraphView extends React.Component {
           bottomLeft:true,
           topLeft:false
         }}
-        className='sidebar'
+        className='graphview'
         defaultSize={
           this.props.defaultSize
         }

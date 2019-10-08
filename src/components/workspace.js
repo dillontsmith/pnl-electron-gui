@@ -40,10 +40,8 @@ export default class Workspace extends React.Component {
     this.setState({ active_tooltip: stateWithNewText })
   }
 
-  get_mouse_initial(e, dir, refToElement) {
-    this.set_tool_tip('initial')
+  get_mouse_initial() {
     this.mouse_initial = this.state.mouse
-    this.mouse_direction = dir
   }
 
   resize(horizontal_factor, vertical_factor, e, direction, ref, d) {
@@ -53,6 +51,7 @@ export default class Workspace extends React.Component {
     var mouse_initial = self.mouse_initial
     var offset_hor = mouse_current.x - mouse_initial.x
     var offset_ver = mouse_current.y - mouse_initial.y
+    console.log(offset_hor, offset_ver)
     if (['bottomRight', 'bottomLeft', 'topRight', 'topLeft'].includes(direction)) {
       self.setState({ [horizontal_factor]: self.state[horizontal_factor] + offset_hor })
       self.setState({ [vertical_factor]: self.state[vertical_factor] + offset_ver })
@@ -62,6 +61,7 @@ export default class Workspace extends React.Component {
       self.setState({ [vertical_factor]: self.state[vertical_factor] + offset_ver })
     }
     self.mouse_initial = mouse_current
+    console.log(self.state)
   }
 
 
@@ -88,45 +88,45 @@ export default class Workspace extends React.Component {
 
   render() {
     var self = this
-    var padding = 0
-    var row_one_components = [
+    var padding = 10
+    var components = [
       <div key="a">
-        <SideBar hover={() => this.set_tool_tip('sidebar')}
-                 className='pnl-panel'
-                 onResizeStart={this.get_mouse_initial}
-                 onResize={function (e, direction, ref, d) {
-                   self.resize('rowOneHorizontalFactor', 'verticalFactor', e, direction, ref, d)
-                 }}
-                 onResizeStop={function (e, direction, ref, d) {
-                   self.resize('rowOneHorizontalFactor', 'verticalFactor', e, direction, ref, d)
-                 }}
-                 size={
-                   {
-                     height: this.state.verticalFactor,
-                     width: this.state.rowOneHorizontalFactor
-                   }
-                 }
+        <SideBar
+          hover={() => this.set_tool_tip('sidebar')}
+          className='pnl-panel'
+          onResizeStart={this.get_mouse_initial}
+          onResize={function (e, direction, ref, d) {
+            self.resize('rowOneHorizontalFactor', 'verticalFactor', e, direction, ref, d)
+          }}
+          onResizeStop={function (e, direction, ref, d) {
+            self.resize('rowOneHorizontalFactor', 'verticalFactor', e, direction, ref, d)
+          }}
+          size={
+            {
+              height: this.state.verticalFactor - padding,
+              width: this.state.rowOneHorizontalFactor - padding
+            }
+          }
         />
       </div>,
       <div key="b">
-        <GraphView className='pnl-panel'
-                   onResizeStart={this.get_mouse_initial}
-                   onResize={function (e, direction, ref, d) {
-                     self.resize('rowOneHorizontalFactor', 'verticalFactor', e, direction, ref, d)
-                   }}
-                   onResizeStop={function (e, direction, ref, d) {
-                     self.resize('rowOneHorizontalFactor', 'verticalFactor', e, direction, ref, d)
-                   }}
-                   size={
-                     {
-                       height: this.state.verticalFactor,
-                       width: this.state.horizontalResolution - this.state.rowOneHorizontalFactor
-                     }
-                   }
+        <GraphView
+          className='pnl-panel'
+          onResizeStart={this.get_mouse_initial}
+          onResize={function (e, direction, ref, d) {
+            self.resize('rowOneHorizontalFactor', 'verticalFactor', e, direction, ref, d)
+          }}
+          onResizeStop={function (e, direction, ref, d) {
+            self.resize('rowOneHorizontalFactor', 'verticalFactor', e, direction, ref, d)
+          }}
+          size={
+            {
+              height: this.state.verticalFactor - padding,
+              width: this.state.horizontalResolution - this.state.rowOneHorizontalFactor - padding * 2
+            }
+          }
         />
-      </div>
-    ]
-    var row_two_components = [
+      </div>,
       <div key="c">
         <ToolTipBox
           text={this.state.active_tooltip}
@@ -140,8 +140,8 @@ export default class Workspace extends React.Component {
           }}
           size={
             {
-              height: this.state.verticalResolution - this.state.verticalFactor,
-              width: this.state.rowTwoHorizontalFactor
+              height: this.state.verticalResolution - this.state.verticalFactor - padding * 2,
+              width: this.state.rowTwoHorizontalFactor - padding
             }
           }/>
       </div>,
@@ -158,88 +158,50 @@ export default class Workspace extends React.Component {
           }}
           size={
             {
-              height: this.state.verticalResolution - this.state.verticalFactor,
-              width: this.state.horizontalResolution - this.state.rowTwoHorizontalFactor
+              height: this.state.verticalResolution - this.state.verticalFactor - padding * 2,
+              width: this.state.horizontalResolution - this.state.rowTwoHorizontalFactor - padding * 2
             }
           }/>
       </div>
     ]
     return (
       <Layout
-        className={'outergrid'}
+        className={'workspace_grid'}
         margin={[0, 0]}
         layout={[
           {
-            i: 'outer_a',
+            i: 'a',
             x: 0,
             y: 0,
-            w: this.state.horizontalResolution,
+            w: this.state.rowOneHorizontalFactor,
             h: this.state.verticalFactor
           },
           {
-            i: 'outer_b',
+            i: 'b',
+            x: this.state.horizontalResolution - this.state.rowOneHorizontalFactor,
+            y: 0,
+            w: this.state.horizontalResolution - this.state.rowOneHorizontalFactor,
+            h: this.state.verticalFactor
+          },
+          {
+            i: 'c',
             x: 0,
             y: this.state.verticalResolution - this.state.verticalFactor,
-            w: this.state.horizontalResolution,
+            w: this.state.rowTwoHorizontalFactor,
             h: this.state.verticalResolution - this.state.verticalFactor
           },
+          {
+            i: 'd',
+            x: this.state.horizontalResolution - this.state.rowTwoHorizontalFactor,
+            y: this.state.verticalResolution - this.state.verticalFactor,
+            w: this.state.horizontalResolution - this.state.rowTwoHorizontalFactor,
+            h: this.state.verticalResolution - this.state.verticalFactor
+          }
         ]}
         cols={this.state.horizontalResolution}
         rowHeight={1}
         width={this.state.horizontalResolution}
-        components={[
-          <div key="outer_a">
-            <Layout
-              margin={[0, 0]}
-              className={'row_one'}
-              layout={[
-                {
-                  i: 'a',
-                  x: 0,
-                  y: 0,
-                  w: this.state.rowOneHorizontalFactor,
-                  h: this.state.verticalFactor
-                },
-                {
-                  i: 'b',
-                  x: this.state.horizontalResolution - this.state.rowOneHorizontalFactor,
-                  y: 0,
-                  w: this.state.horizontalResolution - this.state.rowOneHorizontalFactor,
-                  h: this.state.verticalFactor
-                }
-              ]}
-              components={row_one_components}
-              cols={this.state.horizontalResolution}
-              rowHeight={1}
-              width={this.state.horizontalResolution}
-            />
-          </div>,
-          <div key="outer_b">
-            <Layout
-              margin={[0, 0]}
-              className={'row_two'}
-              layout={[
-                {
-                  i: 'c',
-                  x: 0,
-                  y: 0,
-                  w: this.state.rowTwoHorizontalFactor,
-                  h: this.state.verticalResolution - this.state.verticalFactor
-                },
-                {
-                  i: 'd',
-                  x: this.state.horizontalResolution - this.state.rowTwoHorizontalFactor,
-                  y: 0,
-                  w: this.state.horizontalResolution - this.state.rowTwoHorizontalFactor,
-                  h: this.state.verticalResolution - this.state.verticalFactor
-                },
-              ]}
-              components={row_two_components}
-              cols={this.state.horizontalResolution}
-              rowHeight={1}
-              width={this.state.horizontalResolution}/>
-          </div>
-        ]}
+        components={components}
       />
     )
   }

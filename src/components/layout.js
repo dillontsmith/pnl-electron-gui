@@ -13,15 +13,17 @@ export default class Layout extends React.Component {
   }
 
   render() {
+    console.log(this.props)
     return (
       <GridLayout className={this.props.className}
                   layout={this.props.layout}
                   cols={this.props.cols}
-                  rowHeight={this.props.rowHeight}
                   width={this.props.width}
+                  rowHeight={this.props.rowHeight}
                   margin={this.props.margin}
                   isDraggable={false}
-                  isResizable={false}>
+                  isResizable={false}
+                  >
         {
           this.props.components
         }

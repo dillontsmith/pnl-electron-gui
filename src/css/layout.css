@@ -1,3 +1,6 @@
+.react-grid-layout.workspace_grid{
+    transform: translate(10px, 10px)
+}
 .pnl-panel{
     border-radius:8px;
     padding: 5px 5px 0;
