@@ -30,8 +30,8 @@ export default class Tooltipbox extends React.Component{
           right: true,
           bottom: false,
           left: false,
-          topRight: false,
-          bottomRight: true,
+          topRight: true,
+          bottomRight: false,
           bottomLeft: false,
           topLeft: false
         }}

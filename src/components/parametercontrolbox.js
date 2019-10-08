@@ -35,8 +35,8 @@ export class ParameterControlBox extends React.Component {
           left:true,
           topRight:false,
           bottomRight:false,
-          bottomLeft:true,
-          topLeft:false
+          bottomLeft:false,
+          topLeft:true
         }}
         className='sidebar'
         defaultSize={
