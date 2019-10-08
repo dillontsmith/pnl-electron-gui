@@ -21,6 +21,7 @@
     "react-resizable": "^1.8.0",
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.1.1",
+    "styled-components": "^4.4.0",
     "typescript": "^3.6.2"
   },
   "homepage": "./",

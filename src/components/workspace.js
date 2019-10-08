@@ -165,44 +165,49 @@ export default class Workspace extends React.Component {
       </div>
     ]
     return (
-      <Layout
-        className={'workspace_grid'}
-        margin={[0, 0]}
-        layout={[
-          {
-            i: 'a',
-            x: 0,
-            y: 0,
-            w: this.state.rowOneHorizontalFactor,
-            h: this.state.verticalFactor
-          },
-          {
-            i: 'b',
-            x: this.state.horizontalResolution - this.state.rowOneHorizontalFactor,
-            y: 0,
-            w: this.state.horizontalResolution - this.state.rowOneHorizontalFactor,
-            h: this.state.verticalFactor
-          },
-          {
-            i: 'c',
-            x: 0,
-            y: this.state.verticalResolution - this.state.verticalFactor,
-            w: this.state.rowTwoHorizontalFactor,
-            h: this.state.verticalResolution - this.state.verticalFactor
-          },
-          {
-            i: 'd',
-            x: this.state.horizontalResolution - this.state.rowTwoHorizontalFactor,
-            y: this.state.verticalResolution - this.state.verticalFactor,
-            w: this.state.horizontalResolution - this.state.rowTwoHorizontalFactor,
-            h: this.state.verticalResolution - this.state.verticalFactor
-          }
-        ]}
-        cols={this.state.horizontalResolution}
-        rowHeight={1}
-        width={this.state.horizontalResolution}
-        components={components}
-      />
+      <div>
+        {components}
+      </div>
     )
+    // return (
+    //   <Layout
+    //     className={'workspace_grid'}
+    //     margin={[0, 0]}
+    //     layout={[
+    //       {
+    //         i: 'a',
+    //         x: 0,
+    //         y: 0,
+    //         w: this.state.rowOneHorizontalFactor,
+    //         h: this.state.verticalFactor
+    //       },
+    //       {
+    //         i: 'b',
+    //         x: this.state.horizontalResolution - this.state.rowOneHorizontalFactor,
+    //         y: 0,
+    //         w: this.state.horizontalResolution - this.state.rowOneHorizontalFactor,
+    //         h: this.state.verticalFactor
+    //       },
+    //       {
+    //         i: 'c',
+    //         x: 0,
+    //         y: this.state.verticalResolution - this.state.verticalFactor,
+    //         w: this.state.rowTwoHorizontalFactor,
+    //         h: this.state.verticalResolution - this.state.verticalFactor
+    //       },
+    //       {
+    //         i: 'd',
+    //         x: this.state.horizontalResolution - this.state.rowTwoHorizontalFactor,
+    //         y: this.state.verticalResolution - this.state.verticalFactor,
+    //         w: this.state.horizontalResolution - this.state.rowTwoHorizontalFactor,
+    //         h: this.state.verticalResolution - this.state.verticalFactor
+    //       }
+    //     ]}
+    //     cols={this.state.horizontalResolution}
+    //     rowHeight={1}
+    //     width={this.state.horizontalResolution}
+    //     components={components}
+    //   />
+    // )
   }
 }
