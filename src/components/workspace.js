@@ -46,12 +46,12 @@ export default class Workspace extends React.Component {
 
   resize(horizontal_factor, vertical_factor, e, direction, ref, d) {
     var self = this
-    console.log(horizontal_factor, vertical_factor, e, direction, ref, d)
     var mouse_current = self.state.mouse
     var mouse_initial = self.mouse_initial
     var offset_hor = mouse_current.x - mouse_initial.x
     var offset_ver = mouse_current.y - mouse_initial.y
-    console.log(offset_hor, offset_ver)
+    // console.log(offset_hor, offset_ver)
+    console.log(this.state.horizontalResolution - this.state.rowOneHorizontalFactor)
     if (['bottomRight', 'bottomLeft', 'topRight', 'topLeft'].includes(direction)) {
       self.setState({ [horizontal_factor]: self.state[horizontal_factor] + offset_hor })
       self.setState({ [vertical_factor]: self.state[vertical_factor] + offset_ver })
@@ -61,7 +61,6 @@ export default class Workspace extends React.Component {
       self.setState({ [vertical_factor]: self.state[vertical_factor] + offset_ver })
     }
     self.mouse_initial = mouse_current
-    console.log(self.state)
   }
 
 
@@ -178,7 +177,7 @@ export default class Workspace extends React.Component {
           },
           {
             i: 'b',
-            x: this.state.horizontalResolution - this.state.rowOneHorizontalFactor,
+            x: this.state.rowOneHorizontalFactor,
             y: 0,
             w: this.state.horizontalResolution - this.state.rowOneHorizontalFactor,
             h: this.state.verticalFactor
@@ -192,7 +191,7 @@ export default class Workspace extends React.Component {
           },
           {
             i: 'd',
-            x: this.state.horizontalResolution - this.state.rowTwoHorizontalFactor,
+            x: this.state.rowTwoHorizontalFactor,
             y: this.state.verticalResolution - this.state.verticalFactor,
             w: this.state.horizontalResolution - this.state.rowTwoHorizontalFactor,
             h: this.state.verticalResolution - this.state.verticalFactor
