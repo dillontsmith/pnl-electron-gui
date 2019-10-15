@@ -4,25 +4,22 @@ import SideBar from './sidebar'
 import GraphView from './graphview'
 import ToolTipBox from './tooltipbox'
 import ParameterControlBox from './parametercontrolbox'
+import graph from '../resources/graph'
+import _graph from '../resources/_graph'
 
 export default class Workspace extends React.Component {
   constructor(props) {
     super(props)
     var w = window.innerWidth
     var h = window.innerHeight
-    this.calculateHorizontalFactor = function (x) {
-      return Math.ceil(x/5)
-    }
-    this.calculateVerticalFactor = function (y) {
-      return Math.ceil(y*0.7)
-    }
     this.state = {
-      active_tooltip: 'tea',
+      active_tooltip: '',
       xRes: w,
       yRes: h,
-      rowOneHorizontalFactor: this.calculateHorizontalFactor(w),
-      rowTwoHorizontalFactor: this.calculateHorizontalFactor(w),
-      verticalFactor: this.calculateVerticalFactor(h),
+      rowOneHorizontalFactor: Math.ceil(w/5),
+      rowTwoHorizontalFactor: Math.ceil(w/5),
+      verticalFactor: Math.ceil(h*0.7),
+      graph:graph
     }
     this.componentWillMount = this.componentWillMount.bind(this)
     this.panel_resize = this.panel_resize.bind(this)
@@ -60,8 +57,10 @@ export default class Workspace extends React.Component {
       yRes:h,
       rowOneHorizontalFactor: (old_r1_h_factor/old_xRes)*w,
       rowTwoHorizontalFactor: (old_r2_h_factor/old_xRes)*w,
-      verticalFactor: (old_v_factor/old_yRes)*h
+      verticalFactor: (old_v_factor/old_yRes)*h,
+      graph:_graph
     })
+    this.forceUpdate()
   }
 
   panel_resize(horizontal_factor, vertical_factor, e, direction, ref, d) {
@@ -144,6 +143,7 @@ export default class Workspace extends React.Component {
               width: this.state.xRes - this.state.rowOneHorizontalFactor - padding * 2
             }
           }
+          graph={this.state.graph}
         />
       </div>,
       <div key="c">
