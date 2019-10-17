@@ -6,6 +6,9 @@ import ToolTipBox from './tooltipbox'
 import ParameterControlBox from './parametercontrolbox'
 import graph from '../resources/graph'
 import _graph from '../resources/_graph'
+import BasicComponent from './test_component'
+
+const http = new XMLHttpRequest()
 
 export default class Workspace extends React.Component {
   constructor(props) {
@@ -19,15 +22,31 @@ export default class Workspace extends React.Component {
       rowOneHorizontalFactor: Math.ceil(w/5),
       rowTwoHorizontalFactor: Math.ceil(w/5),
       verticalFactor: Math.ceil(h*0.7),
-      graph:graph
+      graph:graph,
+      test_text:'hey'
     }
+    this.file_loader = document.createElement('input')
     this.componentWillMount = this.componentWillMount.bind(this)
     this.panel_resize = this.panel_resize.bind(this)
     this.get_mouse_initial = this.get_mouse_initial.bind(this)
     this.set_tool_tip = this.set_tool_tip.bind(this)
     this.set_components = this.set_components.bind(this)
     this.window_resize = this.window_resize.bind(this)
+    this.componentDidMount = this.componentDidMount.bind(this)
+    this.set_file_loader = this.set_file_loader.bind(this)
     this.set_components()
+    this.set_file_loader()
+  }
+
+  set_file_loader() {
+    this.file_loader.type = 'file'
+    this.file_loader.onchange = e => {
+      var filepath = e.path[0].files[0].path
+      http.open('GET', 'http://127.0.0.1:5000/api/v1/resources/script?filepath=' + filepath)
+      // http.send()
+      console.log(http.open('GET', 'http://127.0.0.1:5000/api/v1/resources/compositions'))
+      console.log(http.send())
+    }
   }
 
   set_components() {
@@ -58,7 +77,8 @@ export default class Workspace extends React.Component {
       rowOneHorizontalFactor: (old_r1_h_factor/old_xRes)*w,
       rowTwoHorizontalFactor: (old_r2_h_factor/old_xRes)*w,
       verticalFactor: (old_v_factor/old_yRes)*h,
-      graph:_graph
+      graph:_graph,
+      test_width:500
     })
     this.forceUpdate()
   }
@@ -80,12 +100,22 @@ export default class Workspace extends React.Component {
     self.mouse_initial = mouse_current
   }
 
+  componentDidMount() {
+    var self = this
+    setTimeout(function () {
+      self.setState({
+        graph:_graph,
+      })
+    },
+      5000)
+  }
 
   componentWillUnmount() {
     window.removeEventListener('mousemove')
     window.removeEventListener('mousedown')
     window.removeEventListener('mouseup')
     window.removeEventListener('resize')
+    window.removeEventListener('onkeypress')
   }
 
   componentWillMount() {
@@ -101,6 +131,12 @@ export default class Workspace extends React.Component {
         this.mouse_status = 'up'
       }
     )
+    window.addEventListener('keypress', (e) => {
+      console.log(e)
+      if (e.keyCode === 21 && e.ctrlKey) {
+        this.file_loader.click()
+      }
+    })
     window.addEventListener('resize', this.window_resize)
   }
 

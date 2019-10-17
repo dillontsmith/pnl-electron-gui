@@ -32,9 +32,18 @@ class GraphView extends React.Component {
     }
     this.setGraph = this.setGraph.bind(this)
     this.updateGraph = this.updateGraph.bind(this)
+    this.componentDidUpdate = this.componentDidUpdate.bind(this)
   }
 
   componentWillMount() {
+  }
+
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    if (!(this.props.graph===prevProps.graph)){
+      d3.selectAll('svg').remove()
+      this.setGraph()
+      this.updateGraph()
+    }
   }
 
   componentWillUnmount() {
@@ -42,10 +51,7 @@ class GraphView extends React.Component {
   }
 
   componentDidMount() {
-    if (!this.state.mounted) {
-      this.setGraph()
-      this.setState({ mounted: true })
-    }
+    this.setGraph()
     window.addEventListener('resize', this.updateGraph)
     add_context_menu('.graph-view', context_menu)
   }
@@ -235,7 +241,6 @@ class GraphView extends React.Component {
       graph_rect = document.querySelector('g.node')
         .getBBox()
       widthOffset = graph_rect.x-((view_rect.width/2)-(graph_rect.width/2))
-      console.log(widthOffset)
       heightOffset = (view_rect.height/2)-(graph_rect.height/2)
 
       self.props.graph.objects.forEach(function (d) {
@@ -496,14 +501,14 @@ class GraphView extends React.Component {
 
           }
         })
-        .on( "mouseup", function() {
+         .on( "mouseup",   function() {
           // Remove selection frame
           svg.selectAll( "rect.selection").remove();
 
           // Remove temporary selection marker class
           d3.selectAll( 'g.state.selection').classed( "selection", false);
         })
-        .on( "mouseout", function() {
+         .on( "mouseout",  function() {
           var s = svg.select( "rect.selection");
           if( !s.empty() && d3.event.relatedTarget.tagName==='HTML' ) {
             // Remove selection frame
